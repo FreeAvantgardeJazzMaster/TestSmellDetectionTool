@@ -15,7 +15,7 @@ public class TestSmellDetector {
 
     private List<TestSmell> testSmells;
 
-    private TestSmellDetector() {
+    public TestSmellDetector() {
         initSmells();
     }
 
@@ -24,7 +24,7 @@ public class TestSmellDetector {
         testSmells.add(new EmptyTest());
     }
 
-    public void detectSmells(TestFile testFile) throws FileNotFoundException{
+    public TestFile detectSmells(TestFile testFile) throws FileNotFoundException{
         FileInputStream fis = new FileInputStream(testFile.getFilePath());
         CompilationUnit cu = JavaParser.parse(fis);
 
@@ -34,6 +34,8 @@ public class TestSmellDetector {
             }catch(Exception e){
                 e.printStackTrace();
             }
+         testFile.addTestSmell(testSmell);
         }
+        return testFile;
     }
 }

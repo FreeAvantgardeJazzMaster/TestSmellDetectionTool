@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TestFile {
-    String fileName;
-    String filePath;
-    List<TestSmell> testSmells;
+    private String fileName;
+    private String filePath;
+    private List<TestSmell> testSmells;
 
     public String getFileName() {
         return fileName;
@@ -22,6 +22,10 @@ public class TestFile {
 
     public void setFileName(String fileName) {
         this.fileName = fileName;
+    }
+
+    public void addTestSmell(TestSmell testSmell){
+        this.testSmells.add(testSmell);
     }
 
     public void setFilePath(String filePath) {

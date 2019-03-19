@@ -11,6 +11,8 @@ public class Main {
 
         TestFile testFile = new TestFile(filePath);
 
-        testSmellDetector.detectSmells(testFile);
+        testFile = testSmellDetector.detectSmells(testFile);
+
+        System.out.println("end.");
     }
 }
