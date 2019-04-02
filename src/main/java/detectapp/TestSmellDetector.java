@@ -4,7 +4,9 @@ import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import detectapp.model.TestFile;
 import detectapp.model.TestSmell;
+import detectapp.testsmells.DuplicatedAssertion;
 import detectapp.testsmells.EmptyTest;
+import detectapp.testsmells.ObjectCreationOutsideSetUp;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -22,6 +24,8 @@ public class TestSmellDetector {
     private void initSmells(){
         testSmells = new ArrayList<>();
         testSmells.add(new EmptyTest());
+        testSmells.add(new DuplicatedAssertion());
+        testSmells.add(new ObjectCreationOutsideSetUp());
     }
 
     public TestFile detectSmells(TestFile testFile) throws FileNotFoundException{

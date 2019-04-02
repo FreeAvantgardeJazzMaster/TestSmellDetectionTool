@@ -4,9 +4,14 @@ import org.junit.jupiter.api.Test;
 
 public class MyTests {
 
+    @Before
+    public void setUp(){
+       MyClass tester = new MyClass(); // MyClass is tested
+    }
+
     @Test
     public void multiplicationOfZeroIntegersShouldReturnZero() {
-        MyClass tester = new MyClass(); // MyClass is tested
+        tester = new MyClass(); // MyClass is tested
 
         // assert statements
         assertEquals(0, tester.multiply(10, 0), "10 x 0 must be 0");
