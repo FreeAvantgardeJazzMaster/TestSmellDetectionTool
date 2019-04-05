@@ -1,7 +1,11 @@
 package detectapp.testsmells;
 
+import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.expr.MethodCallExpr;
+import com.github.javaparser.ast.stmt.CatchClause;
+import com.github.javaparser.ast.stmt.ThrowStmt;
 import detectapp.model.TestCodeElement;
+import detectapp.model.TestMethod;
 import detectapp.model.TestSmell;
 
 import java.util.ArrayList;
@@ -11,11 +15,14 @@ public class ExceptionCatchingThrowingTest extends TestSmell {
 
     private String name = "Exception Catching Throwing Test";
 
+    public boolean hasException = false;
+
     public ExceptionCatchingThrowingTest() {
         testCodeElements = new ArrayList<>();
     }
 
     private List<TestCodeElement> testCodeElements;
+
     @Override
     public String getName() {
         return name;
@@ -32,7 +39,30 @@ public class ExceptionCatchingThrowingTest extends TestSmell {
     }
 
     @Override
-    public void visit(MethodCallExpr method, Void arg){
+    public void visit(MethodDeclaration n, Void arg){
+        hasException = false;
+        TestMethod testMethod = new TestMethod(n.getNameAsString());
+        super.visit(n, arg);
 
+        if (n.getThrownExceptions().size() > 0)
+            hasException = true;
+
+        if (hasException)
+            testMethod.setSmell(true);
+
+        testCodeElements.add(testMethod);
     }
+
+    @Override
+    public void visit(ThrowStmt n, Void arg) {
+        super.visit(n, arg);
+        hasException = true;
+    }
+
+    @Override
+    public void visit(CatchClause n, Void arg) {
+        super.visit(n, arg);
+        hasException = true;
+    }
+
 }

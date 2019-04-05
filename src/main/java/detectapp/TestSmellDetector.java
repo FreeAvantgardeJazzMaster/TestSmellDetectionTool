@@ -6,6 +6,7 @@ import detectapp.model.TestFile;
 import detectapp.model.TestSmell;
 import detectapp.testsmells.DuplicatedAssertion;
 import detectapp.testsmells.EmptyTest;
+import detectapp.testsmells.ExceptionCatchingThrowingTest;
 import detectapp.testsmells.ObjectCreationOutsideSetUp;
 
 import java.io.FileInputStream;
@@ -26,6 +27,7 @@ public class TestSmellDetector {
         testSmells.add(new EmptyTest());
         testSmells.add(new DuplicatedAssertion());
         testSmells.add(new ObjectCreationOutsideSetUp());
+        testSmells.add(new ExceptionCatchingThrowingTest());
     }
 
     public TestFile detectSmells(TestFile testFile) throws FileNotFoundException{
