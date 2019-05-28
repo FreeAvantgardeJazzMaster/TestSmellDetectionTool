@@ -19,11 +19,6 @@ public class DuplicatedAssertion extends TestSmell{
     }
 
     @Override
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Override
     public List<TestCodeElement> getTestCodeElements() {
         return testCodeElements;
     }

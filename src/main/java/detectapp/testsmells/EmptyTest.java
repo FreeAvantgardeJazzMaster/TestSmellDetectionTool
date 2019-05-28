@@ -18,11 +18,6 @@ public class EmptyTest extends TestSmell {
     }
 
     @Override
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Override
     public List<TestCodeElement> getTestCodeElements() {
         return null;
     }

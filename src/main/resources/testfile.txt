@@ -32,6 +32,10 @@ public class MyTests {
                 //comment
 
         File file = new File();
+
+        Thread.sleep(100);
+
+        FileInputStream fis = new FileInputStream("path");
     }
 
 }

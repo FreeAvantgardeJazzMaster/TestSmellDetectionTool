@@ -27,6 +27,8 @@ public class TestSmellDetector {
         testSmells.add(new ExceptionCatchingThrowingTest());
         testSmells.add(new RescourceOptimism());
         testSmells.add(new Complexity());
+        testSmells.add(new SleepyTest());
+        testSmells.add(new MysteryGuest());
     }
 
     public TestFile detectSmells(TestFile testFile) throws FileNotFoundException{
