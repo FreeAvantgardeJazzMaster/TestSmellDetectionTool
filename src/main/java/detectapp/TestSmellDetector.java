@@ -3,6 +3,7 @@ package detectapp;
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import detectapp.model.TestFile;
+import detectapp.model.TestMethod;
 import detectapp.model.TestSmell;
 import detectapp.testsmells.*;
 
@@ -15,9 +16,7 @@ public class TestSmellDetector {
 
     private List<TestSmell> testSmells;
 
-    public TestSmellDetector() {
-        initSmells();
-    }
+    public TestSmellDetector() { }
 
     private void initSmells(){
         testSmells = new ArrayList<>();
@@ -31,18 +30,21 @@ public class TestSmellDetector {
         testSmells.add(new MysteryGuest());
     }
 
-    public TestFile detectSmells(TestFile testFile) throws FileNotFoundException{
-        FileInputStream fis = new FileInputStream(testFile.getFilePath());
-        CompilationUnit cu = JavaParser.parse(fis);
+    public List<TestFile> detectSmells(List<TestFile> testFiles) throws FileNotFoundException{
+        for (TestFile testFile : testFiles) {
+            initSmells();
+            FileInputStream fis = new FileInputStream(testFile.getFilePath());
+            CompilationUnit cu = JavaParser.parse(fis);
 
-        for(TestSmell testSmell : testSmells){
-            try{
-                cu.accept(testSmell, null);
-            }catch(Exception e){
-                e.printStackTrace();
+            for (TestSmell testSmell : testSmells) {
+                try {
+                    cu.accept(testSmell, null);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                testFile.addTestSmell(testSmell);
             }
-         testFile.addTestSmell(testSmell);
         }
-        return testFile;
+        return testFiles;
     }
 }

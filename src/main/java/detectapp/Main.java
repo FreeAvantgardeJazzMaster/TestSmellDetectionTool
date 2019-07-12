@@ -1,17 +1,30 @@
 package detectapp;
 
 import detectapp.model.TestFile;
+
+import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        String filePath = "src//main//resources//testfile.txt";
-
+        String folderPath = "src//main//resources";
+        List<TestFile> testFiles = new ArrayList<>();
         TestSmellDetector testSmellDetector = new TestSmellDetector();
 
-        TestFile testFile = new TestFile(filePath);
+        File rootFolder = new File(folderPath);
 
-        testFile = testSmellDetector.detectSmells(testFile);
+        if (rootFolder.exists() && rootFolder.isDirectory()) {
+            for (File file : rootFolder.listFiles()) {
+                if (!file.isDirectory()){
+                    TestFile testFile = new TestFile(file.getPath());
+                    testFiles.add(testFile);
+                }
+            }
+        }
+
+        testFiles = testSmellDetector.detectSmells(testFiles);
 
         System.out.println("end.");
     }
