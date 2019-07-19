@@ -1,0 +1,62 @@
+{
+  "source": {
+    "test-folder": "src//main//resources//test",
+    "production-folder": "src//main//resources//production"
+  },
+
+  "detailed-source":{
+    "file-pairs":[
+      {
+        "test-file": " ",
+        "production-file": " "
+      }
+    ]
+  },
+
+  "smells-types": [
+    "Complexity",
+    "DuplicatedAssertion",
+    "EmptyTest",
+    "ExceptionCatchingThrowingTest",
+    "MysteryGuest",
+    "ObjectCreationOutsideSetUp",
+    "ResourceOptimism",
+    "Sleepy Test"
+  ],
+
+  "app-settings" :{
+    "key-words":{
+      "assertion" : [
+        "assert",
+        "assertEqual",
+        "assertNotSame",
+        "assertTrue",
+        "assertFalse"
+      ],
+      "mystery-types": [
+        "File",
+        "FileInputStream",
+        "SQLiteOpenHelper",
+        "SQLiteDatabase",
+        "Cursor",
+        "Context",
+        "HttpClient",
+        "HttpResponse",
+        "HttpPost",
+        "HttpGet",
+        "SoapObject"
+      ]
+    },
+
+    "add-functions": {
+      "create-stats": "true",
+      "create-graph": "true"
+    }
+  },
+
+  "output" :{
+    "path": "src//main//output",
+    "type": "json",
+    "detailed-info": "true"
+  }
+}
