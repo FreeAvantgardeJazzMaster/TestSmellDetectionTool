@@ -26,9 +26,6 @@ public class Config {
     private boolean createStats;
     private boolean createGraph;
     private String outputPath;
-    private enum Type{
-        json, xml
-    }
     private Type type;
     private boolean detailedInfo;
 
@@ -91,5 +88,13 @@ public class Config {
 
         this.outputPath = obj.getJSONObject("output").getString("path");
         this.type = obj.getJSONObject("output").getString("type").equals("json") ? Type.json : Type.xml;
+    }
+
+    public String getOutputPath() {
+        return outputPath;
+    }
+
+    public void setOutputPath(String outputPath) {
+        this.outputPath = outputPath;
     }
 }

@@ -4,6 +4,7 @@ import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import detectapp.model.TestFile;
 import detectapp.model.TestMethod;
+import detectapp.model.TestProductionFile;
 import detectapp.model.TestSmell;
 import detectapp.testsmells.*;
 
@@ -18,33 +19,33 @@ public class TestSmellDetector {
 
     public TestSmellDetector() { }
 
-    private void initSmells(){
+    private void initSmells(String productionFilePath){
         testSmells = new ArrayList<>();
-        testSmells.add(new EmptyTest());
+        //testSmells.add(new EmptyTest());
         testSmells.add(new DuplicatedAssertion());
-        testSmells.add(new ObjectCreationOutsideSetUp());
-        testSmells.add(new ExceptionCatchingThrowingTest());
-        testSmells.add(new RescourceOptimism());
-        testSmells.add(new Complexity());
-        testSmells.add(new SleepyTest());
-        testSmells.add(new MysteryGuest());
+        //testSmells.add(new ObjectCreationOutsideSetUp());
+        //testSmells.add(new ExceptionCatchingThrowingTest());
+        //testSmells.add(new RescourceOptimism());
+        //testSmells.add(new Complexity());
+        //testSmells.add(new SleepyTest());
+        //testSmells.add(new MysteryGuest());
+        testSmells.add(new EagerTest(productionFilePath));
     }
 
-    public List<TestFile> detectSmells(List<TestFile> testFiles) throws FileNotFoundException{
-        for (TestFile testFile : testFiles) {
-            initSmells();
-            FileInputStream fis = new FileInputStream(testFile.getFilePath());
-            CompilationUnit cu = JavaParser.parse(fis);
+    public TestFile detectSmells(TestFile testFile, TestProductionFile testProductionFile) throws FileNotFoundException{
+        initSmells(testProductionFile.getFilePath());
+        FileInputStream fis = new FileInputStream(testFile.getFilePath());
+        JavaParser javaParser = new JavaParser();
+        CompilationUnit cu = javaParser.parse(fis);
 
-            for (TestSmell testSmell : testSmells) {
-                try {
-                    cu.accept(testSmell, null);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                testFile.addTestSmell(testSmell);
+        for (TestSmell testSmell : testSmells) {
+            try {
+                cu.accept(testSmell, null);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
+            testFile.addTestSmell(testSmell);
         }
-        return testFiles;
+        return testFile;
     }
 }

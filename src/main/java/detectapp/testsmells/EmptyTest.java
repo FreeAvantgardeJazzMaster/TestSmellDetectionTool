@@ -19,7 +19,7 @@ public class EmptyTest extends TestSmell {
 
     @Override
     public List<TestCodeElement> getTestCodeElements() {
-        return null;
+        return testCodeElements;
     }
 
     @Override

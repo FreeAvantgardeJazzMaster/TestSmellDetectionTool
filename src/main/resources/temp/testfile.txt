@@ -38,4 +38,11 @@ public class MyTests {
         FileInputStream fis = new FileInputStream("path");
     }
 
+    @Test
+    public void eagerTestMethod(){
+                //comment
+
+
+    }
+
 }

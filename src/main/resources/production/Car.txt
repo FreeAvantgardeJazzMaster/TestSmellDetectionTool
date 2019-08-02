@@ -1,0 +1,21 @@
+package detectapp.model;
+
+public class Car {
+    private String color;
+    private int velocity;
+
+    public void paint(String color){
+        this.color = color;
+    }
+
+    public void drive(int velocity){
+        this.velocity = velocity;
+    }
+
+    public void slowDownBy(int newVelocity){
+        if (this.velocity > newVelocity)
+            this.velocity -= newVelocity;
+        else
+            this.velocity = 0;
+    }
+}

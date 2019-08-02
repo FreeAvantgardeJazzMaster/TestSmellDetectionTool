@@ -31,7 +31,7 @@ public class MysteryGuest extends TestSmell {
 
     @Override
     public List<TestCodeElement> getTestCodeElements() {
-        return null;
+        return testCodeElements;
     }
 
     private List<String> mysteryTypes = new ArrayList<>(Arrays.asList(

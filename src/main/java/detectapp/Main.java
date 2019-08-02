@@ -1,7 +1,7 @@
 package detectapp;
 
-import detectapp.model.Config;
-import detectapp.model.TestFile;
+import detectapp.model.*;
+import detectapp.utils.OutputParser;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,6 +15,8 @@ public class Main {
 
         String folderPath = "src//main//resources//test";
         List<TestFile> testFiles = new ArrayList<>();
+        List<TestProductionFile> testProductionFiles = new ArrayList<>();
+        List<TestFile> analyzedFiles = new ArrayList<>();
         TestSmellDetector testSmellDetector = new TestSmellDetector();
 
         File rootFolder = new File(folderPath);
@@ -22,14 +24,21 @@ public class Main {
         if (rootFolder.exists() && rootFolder.isDirectory()) {
             for (File file : rootFolder.listFiles()) {
                 if (!file.isDirectory()){
-                    TestFile testFile = new TestFile(file.getPath());
-                    testFiles.add(testFile);
+                    testFiles.add(new TestFile(file.getPath()));
+                    testProductionFiles.add(new TestProductionFile("src//main//resources//production//Car.txt"));
                 }
             }
         }
+        int count = 0;
+        for (TestFile testFile : testFiles) {
+            analyzedFiles.add(testSmellDetector.detectSmells(testFile, testProductionFiles.get(count)));
+            count += 1;
+        }
 
-        testFiles = testSmellDetector.detectSmells(testFiles);
+
 
         System.out.println("end.");
+        //OutputParser outputParser = new OutputParser(testFiles.get(0), config.getOutputPath(), Type.json);
+        //outputParser.buildOutputFile();
     }
 }
