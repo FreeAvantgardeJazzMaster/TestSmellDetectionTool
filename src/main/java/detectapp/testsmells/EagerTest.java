@@ -3,20 +3,14 @@ package detectapp.testsmells;
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.body.MethodDeclaration;
-import com.github.javaparser.ast.expr.Expression;
 import com.github.javaparser.ast.expr.MethodCallExpr;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
-import com.github.javaparser.symbolsolver.javaparsermodel.JavaParserFacade;
-import com.github.javaparser.symbolsolver.model.typesystem.Type;
-import com.github.javaparser.symbolsolver.resolution.typesolvers.CombinedTypeSolver;
-import com.github.javaparser.symbolsolver.resolution.typesolvers.JavaParserTypeSolver;
 
 import detectapp.model.TestCodeElement;
 import detectapp.model.TestMethod;
 import detectapp.model.TestSmell;
 import detectapp.utils.Similarity;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -80,6 +74,7 @@ public class EagerTest extends TestSmell {
     @Override
     public void visit(MethodDeclaration method, Void arg){
         TestMethod testMethod = new TestMethod(method.getNameAsString());
+        testMethod.setAnnotations(method.getAnnotations());
         super.visit(method, arg);
 
         testMethod.setSmell(calculateProbability() > TRESHOLD_PROB);

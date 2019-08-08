@@ -6,6 +6,7 @@ import com.github.javaparser.ast.expr.AnnotationExpr;
 import com.github.javaparser.ast.expr.MethodCallExpr;
 import com.github.javaparser.ast.expr.VariableDeclarationExpr;
 import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader;
+import detectapp.model.Config;
 import detectapp.model.TestCodeElement;
 import detectapp.model.TestMethod;
 import detectapp.model.TestSmell;
@@ -19,9 +20,12 @@ public class MysteryGuest extends TestSmell {
 
     private String name = "Mystery Guest";
     private List<TestCodeElement> testCodeElements;
+    private List<String> mysteryTypes;
+    private boolean hasSmell = false;
 
     public MysteryGuest() {
         testCodeElements = new ArrayList<>();
+        mysteryTypes = Config.getMysteryTypes();
     }
 
     @Override
@@ -34,22 +38,6 @@ public class MysteryGuest extends TestSmell {
         return testCodeElements;
     }
 
-    private List<String> mysteryTypes = new ArrayList<>(Arrays.asList(
-            "File",
-            "FileInputStream",
-            "SQLiteOpenHelper",
-            "SQLiteDatabase",
-            "Cursor",
-            "Context",
-            "HttpClient",
-            "HttpResponse",
-            "HttpPost",
-            "HttpGet",
-            "SoapObject"
-    ));
-
-    private boolean hasSmell = false;
-
     public boolean isHasSmell() {
         return hasSmell;
     }
@@ -59,9 +47,10 @@ public class MysteryGuest extends TestSmell {
     }
 
     @Override
-    public void visit(MethodDeclaration n, Void arg) {
-        TestMethod testMethod = new TestMethod(n.getNameAsString());
-        super.visit(n, arg);
+    public void visit(MethodDeclaration method, Void arg) {
+        TestMethod testMethod = new TestMethod(method.getNameAsString());
+        testMethod.setAnnotations(method.getAnnotations());
+        super.visit(method, arg);
 
         if (isHasSmell()) {
             testMethod.setSmell(true);

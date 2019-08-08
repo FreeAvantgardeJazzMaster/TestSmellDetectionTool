@@ -41,9 +41,10 @@ public class SleepyTest extends TestSmell {
     }
 
     @Override
-    public void visit(MethodDeclaration n, Void arg) {
-        TestMethod testMethod = new TestMethod(n.getNameAsString());
-        super.visit(n, arg);
+    public void visit(MethodDeclaration method, Void arg) {
+        TestMethod testMethod = new TestMethod(method.getNameAsString());
+        testMethod.setAnnotations(method.getAnnotations());
+        super.visit(method, arg);
 
         if (isHasSmell()){
             testMethod.setSmell(true);
@@ -51,7 +52,6 @@ public class SleepyTest extends TestSmell {
 
         testCodeElements.add(testMethod);
         setHasSmell(false);
-
     }
 
     @Override

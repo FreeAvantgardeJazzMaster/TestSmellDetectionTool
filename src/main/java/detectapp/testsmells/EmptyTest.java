@@ -29,8 +29,8 @@ public class EmptyTest extends TestSmell {
 
     @Override
     public void visit(MethodDeclaration method, Void arg){
-        //System.out.println(method.getNameAsString());
         TestMethod testMethod = new TestMethod(method.getNameAsString());
+        testMethod.setAnnotations(method.getAnnotations());
         if(!method.isAbstract()){
             if (method.getBody().isPresent()){
                 if(method.getBody().get().getStatements().size() == 0)

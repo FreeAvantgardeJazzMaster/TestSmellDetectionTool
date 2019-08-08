@@ -11,7 +11,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        Config config = new Config("src//main//config//config");
+        Config.getConfig("src//main//config//config");
 
         String folderPath = "src//main//resources//test";
         List<TestFile> testFiles = new ArrayList<>();
@@ -25,13 +25,13 @@ public class Main {
             for (File file : rootFolder.listFiles()) {
                 if (!file.isDirectory()){
                     testFiles.add(new TestFile(file.getPath()));
-                    testProductionFiles.add(new TestProductionFile("src//main//resources//production//Car.txt"));
+                    //testProductionFiles.add(new TestProductionFile("src//main//resources//production//Car.txt"));
                 }
             }
         }
         int count = 0;
         for (TestFile testFile : testFiles) {
-            analyzedFiles.add(testSmellDetector.detectSmells(testFile, testProductionFiles.get(count)));
+            analyzedFiles.add(testSmellDetector.detectSmells(testFile, null));
             count += 1;
         }
 

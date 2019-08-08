@@ -2,10 +2,7 @@ package detectapp;
 
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.CompilationUnit;
-import detectapp.model.TestFile;
-import detectapp.model.TestMethod;
-import detectapp.model.TestProductionFile;
-import detectapp.model.TestSmell;
+import detectapp.model.*;
 import detectapp.testsmells.*;
 
 import java.io.FileInputStream;
@@ -21,19 +18,43 @@ public class TestSmellDetector {
 
     private void initSmells(String productionFilePath){
         testSmells = new ArrayList<>();
-        //testSmells.add(new EmptyTest());
-        testSmells.add(new DuplicatedAssertion());
-        //testSmells.add(new ObjectCreationOutsideSetUp());
-        //testSmells.add(new ExceptionCatchingThrowingTest());
-        //testSmells.add(new RescourceOptimism());
-        //testSmells.add(new Complexity());
-        //testSmells.add(new SleepyTest());
-        //testSmells.add(new MysteryGuest());
-        testSmells.add(new EagerTest(productionFilePath));
+        for (String smellType : Config.getSmellsTypes()) {
+            switch (smellType.toLowerCase()){
+                case "complexity" :
+                    testSmells.add(new Complexity());
+                    break;
+                case "duplicatedassertion":
+                    testSmells.add(new DuplicatedAssertion());
+                    break;
+                case "eagertest" :
+                    if (productionFilePath != null)
+                        testSmells.add(new EagerTest(productionFilePath));
+                    break;
+                case "emptytest" :
+                    testSmells.add(new EmptyTest());
+                    break;
+                case "exceptioncatchingthrowingtest" :
+                    testSmells.add(new ExceptionCatchingThrowingTest());
+                    break;
+                case "mysteryguest" :
+                    testSmells.add(new MysteryGuest());
+                    break;
+                case "objectcreationoutsidesetup" :
+                    testSmells.add(new ObjectCreationOutsideSetUp());
+                    break;
+                case "resourceoptimism" :
+                    testSmells.add(new RescourceOptimism());
+                    break;
+                case "sleepytest" :
+                    testSmells.add(new SleepyTest());
+                    break;
+            }
+        }
     }
 
     public TestFile detectSmells(TestFile testFile, TestProductionFile testProductionFile) throws FileNotFoundException{
-        initSmells(testProductionFile.getFilePath());
+        //initSmells(testProductionFile.getFilePath());
+        initSmells(null);
         FileInputStream fis = new FileInputStream(testFile.getFilePath());
         JavaParser javaParser = new JavaParser();
         CompilationUnit cu = javaParser.parse(fis);

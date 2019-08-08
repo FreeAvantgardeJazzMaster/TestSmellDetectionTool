@@ -16,7 +16,6 @@ public class ObjectCreationOutsideSetUp extends TestSmell {
 
     private String name = "Object Creation Outside SetUp";
     private TestClass testClass;
-    boolean constructorAllowed=false;
     private List<TestCodeElement> testCodeElements;
 
     public ObjectCreationOutsideSetUp() {
@@ -41,10 +40,10 @@ public class ObjectCreationOutsideSetUp extends TestSmell {
     }
 
     @Override
-    public void visit(MethodDeclaration n, Void arg) {
-        for (AnnotationExpr annotations : n.getAnnotations()){
+    public void visit(MethodDeclaration method, Void arg) {
+        for (AnnotationExpr annotations : method.getAnnotations()){
             if(!annotations.getNameAsString().toLowerCase().contains("before"))
-                super.visit(n, arg);
+                super.visit(method, arg);
         }
     }
 

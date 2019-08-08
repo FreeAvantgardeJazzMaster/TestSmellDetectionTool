@@ -21,7 +21,8 @@
     "MysteryGuest",
     "ObjectCreationOutsideSetUp",
     "ResourceOptimism",
-    "Sleepy Test"
+    "SleepyTest",
+    "EagerTest"
   ],
 
   "app-settings" :{

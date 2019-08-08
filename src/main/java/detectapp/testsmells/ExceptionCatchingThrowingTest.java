@@ -34,12 +34,13 @@ public class ExceptionCatchingThrowingTest extends TestSmell {
     }
 
     @Override
-    public void visit(MethodDeclaration n, Void arg){
+    public void visit(MethodDeclaration method, Void arg){
         hasException = false;
-        TestMethod testMethod = new TestMethod(n.getNameAsString());
-        super.visit(n, arg);
+        TestMethod testMethod = new TestMethod(method.getNameAsString());
+        testMethod.setAnnotations(method.getAnnotations());
+        super.visit(method, arg);
 
-        if (n.getThrownExceptions().size() > 0)
+        if (method.getThrownExceptions().size() > 0)
             hasException = true;
 
         if (hasException)
