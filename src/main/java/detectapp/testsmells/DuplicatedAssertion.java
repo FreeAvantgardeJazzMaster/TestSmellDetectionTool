@@ -2,7 +2,7 @@ package detectapp.testsmells;
 
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.expr.MethodCallExpr;
-import detectapp.model.Config;
+import detectapp.utils.Config;
 import detectapp.model.TestCodeElement;
 import detectapp.model.TestMethod;
 import detectapp.model.TestSmell;
@@ -48,7 +48,9 @@ public class DuplicatedAssertion extends TestSmell{
     public void visit(MethodCallExpr method, Void arg){
         super.visit(method, arg);
         for (String assertionString : assertionsTypes)
-            if(method.getNameAsString().toLowerCase().contains(assertionString.toLowerCase()))
+            if(method.getNameAsString().toLowerCase().contains(assertionString.toLowerCase())){
                 assertCount++;
+                break;
+            }
     }
 }

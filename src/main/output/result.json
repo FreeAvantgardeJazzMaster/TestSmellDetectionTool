@@ -1,1 +1,19 @@
-{"\\testfile.txt":{"Mystery Guest":["setUp","multiplicationOfZeroIntegersShouldReturnZero","eloMethod"],"Resource Optimism":["setUp","multiplicationOfZeroIntegersShouldReturnZero","eloMethod"],"Object Creation Outside SetUp":["MyTests"],"Sleepy Test":["setUp","multiplicationOfZeroIntegersShouldReturnZero","eloMethod"],"Duplicated Assertion":["setUp","multiplicationOfZeroIntegersShouldReturnZero","eloMethod"],"Exception Catching Throwing Test":["setUp","multiplicationOfZeroIntegersShouldReturnZero","eloMethod"],"Empty Test":["setUp","multiplicationOfZeroIntegersShouldReturnZero","eloMethod"],"Complexity":["setUp","multiplicationOfZeroIntegersShouldReturnZero","eloMethod"]}}
+{
+  "CarTest": {
+    "CarTest": {
+      "test-smells": [
+        "Object Creation Outside SetUp"
+      ],
+      "annotations": []
+    },
+    "eagerTestMethod": {
+      "test-smells": [
+        "Duplicated Assertion",
+        "Eager Test"
+      ],
+      "annotations": [
+        "Test"
+      ]
+    }
+  }
+}

@@ -4,6 +4,7 @@ import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import detectapp.model.*;
 import detectapp.testsmells.*;
+import detectapp.utils.Config;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -53,8 +54,8 @@ public class TestSmellDetector {
     }
 
     public TestFile detectSmells(TestFile testFile, TestProductionFile testProductionFile) throws FileNotFoundException{
-        //initSmells(testProductionFile.getFilePath());
-        initSmells(null);
+        initSmells(testProductionFile.getFilePath());
+        //initSmells(null);
         FileInputStream fis = new FileInputStream(testFile.getFilePath());
         JavaParser javaParser = new JavaParser();
         CompilationUnit cu = javaParser.parse(fis);

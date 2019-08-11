@@ -1,19 +1,14 @@
 package detectapp.testsmells;
 
 import com.github.javaparser.ast.body.MethodDeclaration;
-import com.github.javaparser.ast.body.VariableDeclarator;
 import com.github.javaparser.ast.expr.AnnotationExpr;
-import com.github.javaparser.ast.expr.MethodCallExpr;
 import com.github.javaparser.ast.expr.VariableDeclarationExpr;
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader;
-import detectapp.model.Config;
+import detectapp.utils.Config;
 import detectapp.model.TestCodeElement;
 import detectapp.model.TestMethod;
 import detectapp.model.TestSmell;
 
-import java.lang.annotation.Annotation;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class MysteryGuest extends TestSmell {

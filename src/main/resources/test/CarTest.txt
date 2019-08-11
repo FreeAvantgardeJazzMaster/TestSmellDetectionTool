@@ -14,8 +14,8 @@ public class CarTest {
         car.drive(3);
         assertEquals(3, car.getVelocity);
         car.velocity = 4;
-        car.slowDownBy(4);
-        assertEquals(0, car.getVelocity);
+        car.changeWheel(0);
+        assertEquals(false, car.wheels.get(0).isBroken());
     }
 
 }

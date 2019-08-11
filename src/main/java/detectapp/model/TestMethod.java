@@ -30,6 +30,7 @@ public class TestMethod implements TestCodeElement{
         this.smell = false;
     }
 
+    @Override
     public List<AnnotationExpr> getAnnotations() {
         return annotations;
     }

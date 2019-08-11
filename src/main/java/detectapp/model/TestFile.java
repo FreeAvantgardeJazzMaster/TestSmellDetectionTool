@@ -43,7 +43,10 @@ public class TestFile {
     }
 
     private String extractFileName(){
-        fileName = filePath.substring(filePath.lastIndexOf("\\"));
+        fileName = filePath.substring(filePath.lastIndexOf("\\") + 1);
+        if (fileName.lastIndexOf(".") != -1){
+            fileName = fileName.substring(0, fileName.lastIndexOf("."));
+        }
         return fileName;
     }
 }

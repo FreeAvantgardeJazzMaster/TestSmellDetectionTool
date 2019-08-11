@@ -1,4 +1,4 @@
-package detectapp.model;
+package detectapp.utils;
 
 //import org.json.simple.parser.JSONParser;
 //import org.json.simple.parser.ParseException;
@@ -6,6 +6,8 @@ package detectapp.model;
 //import org.json.simple.JSONObject;
 
 
+import detectapp.model.FilePair;
+import detectapp.model.Type;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONTokener;
@@ -23,8 +25,6 @@ public class Config {
     private static List<FilePair> filePairs;
     private static List<String> smellsTypes;
     private static Map<String, List<String>> keyWords;
-    private static boolean createStats;
-    private static boolean createGraph;
     private static String outputPath;
     private static Type type;
     private static boolean detailedInfo;
@@ -82,17 +82,14 @@ public class Config {
         for (int i = 0; i < jsonArray.length(); i++){
             list.add(jsonArray.get(i).toString());
         }
-        keyWords.put(jsonArray.toString(), list);
+        keyWords.put("assertion", list);
 
         jsonArray = obj.getJSONObject("app-settings").getJSONObject("key-words").getJSONArray("mystery-types");
         list = new ArrayList<>();
         for (int i = 0; i < jsonArray.length(); i++){
             list.add(jsonArray.get(i).toString());
         }
-        keyWords.put(jsonArray.toString(), list);
-
-        createStats = obj.getJSONObject("app-settings").getJSONObject("add-functions").getBoolean("create-stats");
-        createGraph = obj.getJSONObject("app-settings").getJSONObject("add-functions").getBoolean("create-graph");
+        keyWords.put("mystery-types", list);
 
         outputPath = obj.getJSONObject("output").getString("path");
         type = obj.getJSONObject("output").getString("type").equals("json") ? Type.json : Type.xml;
@@ -102,15 +99,23 @@ public class Config {
         return outputPath;
     }
 
-    public static void setOutputPath(String outputPath) {
-        outputPath = outputPath;
-    }
-
     public static List<String> getAssertionTypes() {
         return keyWords.get("assertion");
     }
 
     public static  List<String> getMysteryTypes() {
         return keyWords.get("mystery-types");
+    }
+
+    public static String getTestFolderPath() {
+        return testFolderPath;
+    }
+
+    public static String getProductionFolderPath() {
+        return productionFolderPath;
+    }
+
+    public static List<FilePair> getFilePairs() {
+        return filePairs;
     }
 }

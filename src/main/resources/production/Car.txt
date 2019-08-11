@@ -3,6 +3,7 @@ package detectapp.model;
 public class Car {
     private String color;
     private int velocity;
+    private List<Wheels> wheels;
 
     public void paint(String color){
         this.color = color;
@@ -12,10 +13,11 @@ public class Car {
         this.velocity = velocity;
     }
 
-    public void slowDownBy(int newVelocity){
-        if (this.velocity > newVelocity)
-            this.velocity -= newVelocity;
-        else
-            this.velocity = 0;
+    public void changeWheel(int index){
+        for (Wheel wheel : this.wheels) {
+            if (wheel.getIndex == index)
+                if (wheel.isBroken)
+                    wheel = new Wheel();
+        }
     }
 }

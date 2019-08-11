@@ -1,5 +1,9 @@
 package detectapp.model;
 
+import com.github.javaparser.ast.expr.AnnotationExpr;
+
+import java.util.List;
+
 public interface TestCodeElement {
 
     String getName();
@@ -8,5 +12,6 @@ public interface TestCodeElement {
 
     void setSmell(boolean smell);
 
+    List<AnnotationExpr> getAnnotations();
 }
 
