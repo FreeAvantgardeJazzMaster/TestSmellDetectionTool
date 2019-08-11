@@ -66,7 +66,5 @@ public class SleepyTest extends TestSmell {
                 }
             }
         }
-
     }
-
 }

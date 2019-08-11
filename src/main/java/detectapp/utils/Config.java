@@ -7,7 +7,7 @@ package detectapp.utils;
 
 
 import detectapp.model.FilePair;
-import detectapp.model.Type;
+import detectapp.model.FileFormat;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONTokener;
@@ -26,7 +26,7 @@ public class Config {
     private static List<String> smellsTypes;
     private static Map<String, List<String>> keyWords;
     private static String outputPath;
-    private static Type type;
+    private static FileFormat type;
     private static boolean detailedInfo;
 
     public static List<String> getSmellsTypes() {
@@ -92,7 +92,7 @@ public class Config {
         keyWords.put("mystery-types", list);
 
         outputPath = obj.getJSONObject("output").getString("path");
-        type = obj.getJSONObject("output").getString("type").equals("json") ? Type.json : Type.xml;
+        type = obj.getJSONObject("output").getString("type").equals("xml") ? FileFormat.xml : FileFormat.json;
     }
 
     public static String getOutputPath() {
@@ -117,5 +117,9 @@ public class Config {
 
     public static List<FilePair> getFilePairs() {
         return filePairs;
+    }
+
+    public static FileFormat getType() {
+        return type;
     }
 }

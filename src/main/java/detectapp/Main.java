@@ -39,7 +39,7 @@ public class Main {
 
 
         System.out.println("end.");
-        OutputParser outputParser = new OutputParser(testFiles, Config.getOutputPath(), Type.json);
+        OutputParser outputParser = new OutputParser(testFiles, Config.getOutputPath(), Config.getType());
         outputParser.buildOutputFile();
     }
 
@@ -54,7 +54,7 @@ public class Main {
 
             List<FilePair> filePairs = Config.getFilePairs();
             for (FilePair filePair : filePairs){
-                if (filePair.getTestFilePath().toLowerCase().equals(testFile.getName().toLowerCase()))
+                if (filePair.getTestFileName().toLowerCase().equals(FilenameUtils.removeExtension(testFile.getName().toLowerCase())))
                     return filePair.getProductionFilePath();
             }
         }

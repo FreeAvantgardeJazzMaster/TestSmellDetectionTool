@@ -1,5 +1,5 @@
 package detectapp.model;
 
-public enum Type {
+public enum FileFormat {
     json, xml
 }

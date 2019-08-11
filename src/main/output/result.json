@@ -15,5 +15,43 @@
         "Test"
       ]
     }
+  },
+  "testfile": {
+    "multiplicationOfZeroIntegersShouldReturnZero": {
+      "test-smells": [
+        "Complexity",
+        "Duplicated Assertion",
+        "Exception Catching Throwing Test",
+        "Mystery Guest",
+        "Resource Optimism"
+      ],
+      "annotations": [
+        "Test"
+      ]
+    },
+    "eloMethod": {
+      "test-smells": [
+        "Mystery Guest",
+        "Resource Optimism",
+        "Sleepy Test"
+      ],
+      "annotations": [
+        "Test"
+      ]
+    },
+    "eagerTestMethod": {
+      "test-smells": [
+        "Empty Test"
+      ],
+      "annotations": [
+        "Test"
+      ]
+    },
+    "MyTests": {
+      "test-smells": [
+        "Object Creation Outside SetUp"
+      ],
+      "annotations": []
+    }
   }
 }

@@ -4,63 +4,45 @@ import com.github.javaparser.ast.expr.AnnotationExpr;
 import detectapp.model.TestCodeElement;
 import detectapp.model.TestFile;
 import detectapp.model.TestSmell;
-import detectapp.model.Type;
-import netscape.javascript.JSObject;
+import detectapp.model.FileFormat;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.File;
-import java.lang.reflect.Array;
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import org.apache.commons.io.FileUtils;
-
-import static java.util.stream.Collectors.toList;
+import org.json.XML;
 
 public class OutputParser {
     private String outputPath;
-    private Type format;
+    private FileFormat format;
     private List<TestFile> testFiles;
 
-    public OutputParser(List<TestFile> testfiles, String outputPath, Type format) {
-        this.outputPath = outputPath;
+    public OutputParser(List<TestFile> testfiles, String outputPath, FileFormat format) {
+        this.outputPath = getFullOutputFilePath(outputPath, format);
         this.format = format;
         this.testFiles = testfiles;
     }
 
     public void buildOutputFile(){
-        JSONObject jsonObject = parseTestFiles2(testFiles);
+        JSONObject jsonObject = parseTestFiles(testFiles);
+        File file = new File(outputPath);
         try {
-            File file = new File(outputPath + "//result.json");
-            FileUtils.writeStringToFile(file, jsonObject.toString());
+            switch (this.format){
+                case json:
+                    FileUtils.writeStringToFile(file, jsonObject.toString());
+                    break;
+                case xml:
+                    FileUtils.writeStringToFile(file, XML.toString(jsonObject));
+                    break;
+            }
         } catch (Exception e){
             e.printStackTrace();
         }
     }
 
     public JSONObject parseTestFiles(List<TestFile> testFiles) {
-        JSONObject testFilesJsonObject = new JSONObject();
-        for (TestFile testFile : testFiles) {
-            testFile = filterTestFile(testFile);
-
-            JSONObject testSmellJsonObject = new JSONObject();
-            for (TestSmell testSmell : testFile.getTestSmells()) {
-                JSONArray ja = new JSONArray();
-                for (TestCodeElement testCodeElement : testSmell.getTestCodeElements()) {
-                    ja.put(testCodeElement.getName());
-                }
-                testSmellJsonObject.put(testSmell.getName(), ja);
-            }
-
-            testFilesJsonObject.put(testFile.getFileName(), testSmellJsonObject);
-        }
-
-        return testFilesJsonObject;
-    }
-
-    public JSONObject parseTestFiles2(List<TestFile> testFiles) {
         JSONObject testFilesJsonObject = new JSONObject();
         for (TestFile testFile : testFiles) {
             testFile = filterTestFile(testFile);
@@ -108,10 +90,16 @@ public class OutputParser {
         return testFilesJsonObject;
     }
 
-    public TestFile filterTestFile(TestFile testFile){
+    private TestFile filterTestFile(TestFile testFile){
         for (TestSmell testSmell : testFile.getTestSmells()){
             testSmell.getTestCodeElements().removeIf(e -> !e.isSmell());
         }
         return testFile;
     }
+
+    private String getFullOutputFilePath(String outputPath, FileFormat fileFormat){
+        return outputPath + "//result." + (fileFormat == FileFormat.xml ? "xml" : "json");
+    }
+
+
 }

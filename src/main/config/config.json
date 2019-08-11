@@ -1,14 +1,14 @@
 {
   "source": {
-    "test-folder": "src//main//resources//test",
-    "production-folder": "src//main//resources//production"
+    "test-folder": "src/main/resources/test",
+    "production-folder": "src/main/resources/production"
   },
 
   "detailed-source":{
     "file-pairs":[
       {
-        "test-file": " ",
-        "production-file": " "
+        "test-file": "",
+        "production-file": ""
       }
     ]
   },
