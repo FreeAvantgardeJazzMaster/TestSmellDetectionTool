@@ -33,11 +33,11 @@ public class MysteryGuest extends TestSmell {
         return testCodeElements;
     }
 
-    public boolean isHasSmell() {
+    private boolean isHasSmell() {
         return hasSmell;
     }
 
-    public void setHasSmell(boolean hasSmell) {
+    private void setHasSmell(boolean hasSmell) {
         this.hasSmell = hasSmell;
     }
 
@@ -60,10 +60,10 @@ public class MysteryGuest extends TestSmell {
     public void visit(VariableDeclarationExpr n, Void arg) {
         super.visit(n, arg);
         boolean omit = false;
-        if (n.getAnnotations().isNonEmpty()){
-            for (AnnotationExpr annotationExpr : n.getAnnotations()){
-                if (annotationExpr.getNameAsString().equals("Mock")){
-                   omit = true;
+        if (n.getAnnotations().isNonEmpty()) {
+            for (AnnotationExpr annotationExpr : n.getAnnotations()) {
+                if (annotationExpr.getNameAsString().equals("Mock")) {
+                    omit = true;
                 }
             }
         }

@@ -28,12 +28,12 @@ public class EmptyTest extends TestSmell {
     }
 
     @Override
-    public void visit(MethodDeclaration method, Void arg){
+    public void visit(MethodDeclaration method, Void arg) {
         TestMethod testMethod = new TestMethod(method.getNameAsString());
         testMethod.setAnnotations(method.getAnnotations());
-        if(!method.isAbstract()){
-            if (method.getBody().isPresent()){
-                if(method.getBody().get().getStatements().size() == 0)
+        if (!method.isAbstract()) {
+            if (method.getBody().isPresent()) {
+                if (method.getBody().get().getStatements().size() == 0)
                     testMethod.setSmell(true);
             }
         }

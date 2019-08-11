@@ -25,11 +25,11 @@ public class OutputParser {
         this.testFiles = testfiles;
     }
 
-    public void buildOutputFile(){
+    public void buildOutputFile() {
         JSONObject jsonObject = parseTestFiles(testFiles);
         File file = new File(outputPath);
         try {
-            switch (this.format){
+            switch (this.format) {
                 case json:
                     FileUtils.writeStringToFile(file, jsonObject.toString());
                     break;
@@ -37,12 +37,12 @@ public class OutputParser {
                     FileUtils.writeStringToFile(file, XML.toString(jsonObject));
                     break;
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public JSONObject parseTestFiles(List<TestFile> testFiles) {
+    private JSONObject parseTestFiles(List<TestFile> testFiles) {
         JSONObject testFilesJsonObject = new JSONObject();
         for (TestFile testFile : testFiles) {
             testFile = filterTestFile(testFile);
@@ -51,17 +51,15 @@ public class OutputParser {
             Map<String, List<TestSmell>> testCodeElementListMap = new HashMap<>();
             Map<String, List<AnnotationExpr>> annotations = new HashMap<>();
 
-            for (TestSmell testSmell : testFile.getTestSmells()){
+            for (TestSmell testSmell : testFile.getTestSmells()) {
                 for (TestCodeElement testCodeElement : testSmell.getTestCodeElements()) {
                     if (testCodeElementListMap.containsKey(testCodeElement.getName())) {
                         testCodeElementListMap.get(testCodeElement.getName()).add(testSmell);
-                    }
-                    else {
-                        List<TestSmell> testSmells = new ArrayList<>();
-                        testCodeElementListMap.put(testCodeElement.getName(), new ArrayList<TestSmell>(Arrays.asList(testSmell)));
+                    } else {
+                        testCodeElementListMap.put(testCodeElement.getName(), new ArrayList<>(Arrays.asList(testSmell)));
                     }
 
-                    if (!annotations.containsKey(testCodeElement.getName())){
+                    if (!annotations.containsKey(testCodeElement.getName())) {
                         if (testCodeElement.getAnnotations() != null)
                             annotations.put(testCodeElement.getName(), testCodeElement.getAnnotations());
                         else
@@ -71,10 +69,10 @@ public class OutputParser {
                 }
             }
 
-            for (Map.Entry<String, List<TestSmell>> entry : testCodeElementListMap.entrySet()){
+            for (Map.Entry<String, List<TestSmell>> entry : testCodeElementListMap.entrySet()) {
                 JSONObject testCodeElementJO = new JSONObject();
                 JSONArray ja = new JSONArray();
-                for (TestSmell testSmell: entry.getValue())
+                for (TestSmell testSmell : entry.getValue())
                     ja.put(testSmell.getName());
                 testCodeElementJO.put("test-smells", ja);
 
@@ -90,14 +88,14 @@ public class OutputParser {
         return testFilesJsonObject;
     }
 
-    private TestFile filterTestFile(TestFile testFile){
-        for (TestSmell testSmell : testFile.getTestSmells()){
+    private TestFile filterTestFile(TestFile testFile) {
+        for (TestSmell testSmell : testFile.getTestSmells()) {
             testSmell.getTestCodeElements().removeIf(e -> !e.isSmell());
         }
         return testFile;
     }
 
-    private String getFullOutputFilePath(String outputPath, FileFormat fileFormat){
+    private String getFullOutputFilePath(String outputPath, FileFormat fileFormat) {
         return outputPath + "//result." + (fileFormat == FileFormat.xml ? "xml" : "json");
     }
 

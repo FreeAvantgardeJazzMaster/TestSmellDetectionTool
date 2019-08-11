@@ -13,7 +13,9 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        Config.getConfig("src//main//config//config.json");
+        Config.getConfig("src/main/config/config.json");
+        //Config.getConfig("./config/config.json");
+
 
         List<TestFile> testFiles = new ArrayList<>();
         List<TestProductionFile> testProductionFiles = new ArrayList<>();
@@ -36,14 +38,13 @@ public class Main {
             count += 1;
         }
 
-
-
-        System.out.println("end.");
         OutputParser outputParser = new OutputParser(testFiles, Config.getOutputPath(), Config.getType());
         outputParser.buildOutputFile();
+
+        System.out.println("Deteced successfully.");
     }
 
-    private static String getCorrespondingProductionFilePath(File testFile) throws IOException {
+    private static String getCorrespondingProductionFilePath(File testFile) {
         File productionFolder = new File(Config.getProductionFolderPath());
         if (productionFolder.exists() && productionFolder.isDirectory()) {
             for (File productionFile : productionFolder.listFiles()) {

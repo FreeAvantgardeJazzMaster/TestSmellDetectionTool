@@ -26,10 +26,10 @@ public class FilePair {
         return testFileName;
     }
 
-    private String extractFileName(String filePath){
+    private String extractFileName(String filePath) {
         File file = new File(filePath);
         testFileName = file.getPath().substring(file.getPath().lastIndexOf("\\") + 1);
-        if (testFileName.lastIndexOf(".") != -1){
+        if (testFileName.lastIndexOf(".") != -1) {
             testFileName = testFileName.substring(0, testFileName.lastIndexOf("."));
         }
         return testFileName;

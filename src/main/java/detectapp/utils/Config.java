@@ -1,11 +1,5 @@
 package detectapp.utils;
 
-//import org.json.simple.parser.JSONParser;
-//import org.json.simple.parser.ParseException;
-//import org.json.simple.JSONArray;
-//import org.json.simple.JSONObject;
-
-
 import detectapp.model.FilePair;
 import detectapp.model.FileFormat;
 import org.json.JSONArray;
@@ -33,16 +27,12 @@ public class Config {
         return smellsTypes;
     }
 
-    public static void setSmellsTypes(List<String> smellsTypes) {
-        Config.smellsTypes = smellsTypes;
-    }
-
     public static void getConfig(String configPath) {
         filePairs = new ArrayList<>();
         smellsTypes = new ArrayList<>();
         keyWords = new HashMap<>();
 
-        JSONObject obj = null;
+        JSONObject obj;
         if ((obj = readConfigFile(configPath)) != null)
             loadConfigFile(obj);
     }
@@ -62,31 +52,31 @@ public class Config {
         }
     }
 
-    private static void loadConfigFile(JSONObject obj){
+    private static void loadConfigFile(JSONObject obj) {
         testFolderPath = obj.getJSONObject("source").getString("test-folder");
         productionFolderPath = obj.getJSONObject("source").getString("production-folder");
 
         JSONArray jsonArray = obj.getJSONObject("detailed-source").getJSONArray("file-pairs");
-        for (int i = 0; i < jsonArray.length(); i++ ){
+        for (int i = 0; i < jsonArray.length(); i++) {
             filePairs.add(new FilePair(jsonArray.getJSONObject(i).getString("test-file"),
                     jsonArray.getJSONObject(i).getString("production-file")));
         }
 
         jsonArray = obj.getJSONArray("smells-types");
-        for (int i = 0; i < jsonArray.length(); i++){
+        for (int i = 0; i < jsonArray.length(); i++) {
             smellsTypes.add(jsonArray.get(i).toString());
         }
 
         jsonArray = obj.getJSONObject("app-settings").getJSONObject("key-words").getJSONArray("assertion");
         List<String> list = new ArrayList<>();
-        for (int i = 0; i < jsonArray.length(); i++){
+        for (int i = 0; i < jsonArray.length(); i++) {
             list.add(jsonArray.get(i).toString());
         }
         keyWords.put("assertion", list);
 
         jsonArray = obj.getJSONObject("app-settings").getJSONObject("key-words").getJSONArray("mystery-types");
         list = new ArrayList<>();
-        for (int i = 0; i < jsonArray.length(); i++){
+        for (int i = 0; i < jsonArray.length(); i++) {
             list.add(jsonArray.get(i).toString());
         }
         keyWords.put("mystery-types", list);
@@ -103,7 +93,7 @@ public class Config {
         return keyWords.get("assertion");
     }
 
-    public static  List<String> getMysteryTypes() {
+    public static List<String> getMysteryTypes() {
         return keyWords.get("mystery-types");
     }
 

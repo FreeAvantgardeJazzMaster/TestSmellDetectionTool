@@ -12,7 +12,7 @@ public class Similarity {
 
     private static final Pattern FEATURE_PATTERN = Pattern.compile("[a-zA-Z0-9$_]+");
 
-    public double get(String methodBodyA, String methodBodyB){
+    public double get(String methodBodyA, String methodBodyB) {
         List<String> methodAList = getTerms(methodBodyA);
         List<String> methodBList = getTerms(methodBodyB);
 
@@ -32,7 +32,7 @@ public class Similarity {
         return methodAList.parallelStream().collect(Collectors.groupingBy(str -> str, Collectors.summingInt(str -> 1)));
     }
 
-    private double getCosineSimilarity(Map<String, Integer> freqVectorA, Map<String, Integer> freqVectorB ) {
+    private double getCosineSimilarity(Map<String, Integer> freqVectorA, Map<String, Integer> freqVectorB) {
         final double up = freqVectorA.keySet().parallelStream().filter(freqVectorB::containsKey)
                 .collect(Collectors.summarizingDouble(key -> freqVectorA.get(key) * freqVectorB.get(key))).getSum();
         final double a = getQuadraticSum(freqVectorA.values());

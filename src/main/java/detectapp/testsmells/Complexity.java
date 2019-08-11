@@ -20,15 +20,15 @@ public class Complexity extends TestSmell {
         this.testCodeElements = new ArrayList<>();
     }
 
-    public int getStatementCount() {
+    private int getStatementCount() {
         return statementCount;
     }
 
-    public void setStatementCount(int statementCount) {
+    private void setStatementCount(int statementCount) {
         this.statementCount = statementCount;
     }
 
-    public void incrementCount() {
+    private void incrementCount() {
         statementCount++;
     }
 

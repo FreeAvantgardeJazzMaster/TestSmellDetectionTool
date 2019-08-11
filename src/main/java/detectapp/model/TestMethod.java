@@ -4,7 +4,7 @@ import com.github.javaparser.ast.expr.AnnotationExpr;
 
 import java.util.List;
 
-public class TestMethod implements TestCodeElement{
+public class TestMethod implements TestCodeElement {
 
     private String name;
     private boolean smell;

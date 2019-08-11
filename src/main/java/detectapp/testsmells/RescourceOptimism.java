@@ -19,11 +19,11 @@ public class RescourceOptimism extends TestSmell {
 
     private String name = "Resource Optimism";
 
-    public boolean isHasSmell() {
+    private boolean isHasSmell() {
         return hasSmell;
     }
 
-    public void setHasSmell(boolean hasSmell) {
+    private void setHasSmell(boolean hasSmell) {
         this.hasSmell = hasSmell;
     }
 

@@ -24,7 +24,7 @@ public class TestFile {
         this.fileName = fileName;
     }
 
-    public void addTestSmell(TestSmell testSmell){
+    public void addTestSmell(TestSmell testSmell) {
         this.testSmells.add(testSmell);
     }
 
@@ -42,9 +42,9 @@ public class TestFile {
         this.testSmells = new ArrayList<>();
     }
 
-    private String extractFileName(){
+    private String extractFileName() {
         fileName = filePath.substring(filePath.lastIndexOf("\\") + 1);
-        if (fileName.lastIndexOf(".") != -1){
+        if (fileName.lastIndexOf(".") != -1) {
             fileName = fileName.substring(0, fileName.lastIndexOf("."));
         }
         return fileName;

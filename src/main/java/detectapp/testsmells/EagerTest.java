@@ -19,7 +19,7 @@ import java.util.List;
 public class EagerTest extends TestSmell {
 
     private final String name = "Eager Test";
-    private final  Double TRESHOLD_PROB = 0.5;
+    private final Double TRESHOLD_PROB = 0.5;
     private List<TestCodeElement> testCodeElements;
     private String productionFilePath;
     private LinkedList<String> methodPairs;
@@ -45,26 +45,26 @@ public class EagerTest extends TestSmell {
 
     }
 
-    private String getProductionMethodBody(MethodCallExpr methodCall){
+    private String getProductionMethodBody(MethodCallExpr methodCall) {
         ProductionFileVisitor productionFileVisitor = new ProductionFileVisitor(methodCall);
         try {
             FileInputStream fis = new FileInputStream(productionFilePath);
             CompilationUnit cu = JavaParser.parse(fis);
-            cu.accept(productionFileVisitor,null);
+            cu.accept(productionFileVisitor, null);
 
             return productionFileVisitor.getMethodBody();
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
 
     }
 
-    private Double calculateSimilarity(){
+    private Double calculateSimilarity() {
         return similarity.get(methodPairs.get(0), methodPairs.get(1));
     }
 
-    private Double calculateProbability(){
+    private Double calculateProbability() {
         if (similarities.size() > 0)
             return 1 - (similarities.stream().reduce(0.0, Double::sum) / similarities.size());
         else
@@ -72,7 +72,7 @@ public class EagerTest extends TestSmell {
     }
 
     @Override
-    public void visit(MethodDeclaration method, Void arg){
+    public void visit(MethodDeclaration method, Void arg) {
         TestMethod testMethod = new TestMethod(method.getNameAsString());
         testMethod.setAnnotations(method.getAnnotations());
         super.visit(method, arg);
@@ -82,14 +82,14 @@ public class EagerTest extends TestSmell {
     }
 
     @Override
-    public void visit(MethodCallExpr method, Void arg){
+    public void visit(MethodCallExpr method, Void arg) {
         String methodBody;
         if (methodPairs.size() < 2) {
             if ((methodBody = getProductionMethodBody(method)) != "")
                 methodPairs.add(methodBody);
         } else {
             methodPairs.poll();
-            if ( ( methodBody = getProductionMethodBody(method) ) != "")
+            if ((methodBody = getProductionMethodBody(method)) != "")
                 methodPairs.add(methodBody);
         }
 
@@ -102,22 +102,22 @@ public class EagerTest extends TestSmell {
         private MethodCallExpr methodCall;
         private String methodBody = "";
 
-        public String getMethodBody() {
+        private String getMethodBody() {
             return methodBody;
         }
 
 
-        public ProductionFileVisitor(MethodCallExpr methodCall) {
+        private ProductionFileVisitor(MethodCallExpr methodCall) {
             this.methodCall = methodCall;
         }
 
         @Override
-        public void visit(MethodDeclaration method, Void arg){
-           if (method.getName().toString().equals(methodCall.getName().toString())) {
-               if (methodCall.getArguments().size() == method.getParameters().size()){
-                       methodBody = method.getBody().toString();
-               }
-           }
+        public void visit(MethodDeclaration method, Void arg) {
+            if (method.getName().toString().equals(methodCall.getName().toString())) {
+                if (methodCall.getArguments().size() == method.getParameters().size()) {
+                    methodBody = method.getBody().toString();
+                }
+            }
         }
     }
 }

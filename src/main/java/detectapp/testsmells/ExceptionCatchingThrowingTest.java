@@ -15,7 +15,7 @@ public class ExceptionCatchingThrowingTest extends TestSmell {
 
     private String name = "Exception Catching Throwing Test";
 
-    public boolean hasException = false;
+    private boolean hasException = false;
 
     public ExceptionCatchingThrowingTest() {
         testCodeElements = new ArrayList<>();
@@ -34,7 +34,7 @@ public class ExceptionCatchingThrowingTest extends TestSmell {
     }
 
     @Override
-    public void visit(MethodDeclaration method, Void arg){
+    public void visit(MethodDeclaration method, Void arg) {
         hasException = false;
         TestMethod testMethod = new TestMethod(method.getNameAsString());
         testMethod.setAnnotations(method.getAnnotations());

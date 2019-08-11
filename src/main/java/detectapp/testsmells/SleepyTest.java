@@ -13,14 +13,14 @@ import java.util.List;
 
 public class SleepyTest extends TestSmell {
 
-    private String name ="Sleepy Test";
+    private String name = "Sleepy Test";
     private List<TestCodeElement> testCodeElements;
 
-    public boolean isHasSmell() {
+    private boolean isHasSmell() {
         return hasSmell;
     }
 
-    public void setHasSmell(boolean hasSmell) {
+    private void setHasSmell(boolean hasSmell) {
         this.hasSmell = hasSmell;
     }
 
@@ -46,7 +46,7 @@ public class SleepyTest extends TestSmell {
         testMethod.setAnnotations(method.getAnnotations());
         super.visit(method, arg);
 
-        if (isHasSmell()){
+        if (isHasSmell()) {
             testMethod.setSmell(true);
         }
 
@@ -58,7 +58,7 @@ public class SleepyTest extends TestSmell {
     public void visit(MethodCallExpr n, Void arg) {
         super.visit(n, arg);
         if (n.getNameAsString().equals("sleep")) {
-            if (n.getScope().isPresent()){
+            if (n.getScope().isPresent()) {
                 if (n.getScope().get() instanceof NameExpr) {
                     if (((NameExpr) n.getScope().get()).getNameAsString().equals("Thread")) {
                         setHasSmell(true);

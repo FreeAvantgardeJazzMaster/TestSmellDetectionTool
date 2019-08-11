@@ -41,8 +41,8 @@ public class ObjectCreationOutsideSetUp extends TestSmell {
 
     @Override
     public void visit(MethodDeclaration method, Void arg) {
-        for (AnnotationExpr annotations : method.getAnnotations()){
-            if(!annotations.getNameAsString().toLowerCase().contains("before"))
+        for (AnnotationExpr annotations : method.getAnnotations()) {
+            if (!annotations.getNameAsString().toLowerCase().contains("before"))
                 super.visit(method, arg);
         }
     }
