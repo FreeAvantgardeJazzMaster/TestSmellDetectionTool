@@ -10,13 +10,13 @@ import detectapp.model.TestSmell;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DuplicatedAssertion extends TestSmell {
-    private String name = "Duplicated Assertion";
+public class AssertionRoulette extends TestSmell {
+    private String name = "Assertion Roulette";
     private List<TestCodeElement> testCodeElements;
     private Integer assertCount = 0;
     private List<String> assertionsTypes;
 
-    public DuplicatedAssertion() {
+    public AssertionRoulette() {
         this.testCodeElements = new ArrayList<>();
         this.assertionsTypes = Config.getAssertionTypes();
     }

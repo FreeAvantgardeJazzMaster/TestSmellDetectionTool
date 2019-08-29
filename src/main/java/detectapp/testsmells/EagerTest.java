@@ -25,6 +25,7 @@ public class EagerTest extends TestSmell {
     private LinkedList<String> methodPairs;
     private List<Double> similarities;
     private Similarity similarity;
+    private CompilationUnit compilationUnit;
 
     @Override
     public String getName() {
@@ -42,22 +43,23 @@ public class EagerTest extends TestSmell {
         this.testCodeElements = new ArrayList<>();
         this.similarities = new ArrayList<>();
         this.similarity = new Similarity();
+        readProductionFile();
+    }
 
+    public void readProductionFile() {
+        try {
+            FileInputStream fis = new FileInputStream(productionFilePath);
+            this.compilationUnit = JavaParser.parse(fis);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     private String getProductionMethodBody(MethodCallExpr methodCall) {
         ProductionFileVisitor productionFileVisitor = new ProductionFileVisitor(methodCall);
-        try {
-            FileInputStream fis = new FileInputStream(productionFilePath);
-            CompilationUnit cu = JavaParser.parse(fis);
-            cu.accept(productionFileVisitor, null);
+        compilationUnit.accept(productionFileVisitor, null);
 
-            return productionFileVisitor.getMethodBody();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-
+        return productionFileVisitor.getMethodBody();
     }
 
     private Double calculateSimilarity() {

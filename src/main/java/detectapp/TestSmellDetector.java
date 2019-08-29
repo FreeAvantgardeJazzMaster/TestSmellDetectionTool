@@ -25,7 +25,7 @@ public class TestSmellDetector {
                     testSmells.add(new Complexity());
                     break;
                 case "duplicatedassertion":
-                    testSmells.add(new DuplicatedAssertion());
+                    testSmells.add(new AssertionRoulette());
                     break;
                 case "eagertest" :
                     if (productionFilePath != null)

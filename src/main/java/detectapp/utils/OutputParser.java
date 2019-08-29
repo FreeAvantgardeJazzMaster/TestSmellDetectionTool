@@ -44,9 +44,11 @@ public class OutputParser {
 
     private JSONObject parseTestFiles(List<TestFile> testFiles) {
         JSONObject testFilesJsonObject = new JSONObject();
+        JSONArray testFilesJsonArray = new JSONArray();
         for (TestFile testFile : testFiles) {
             testFile = filterTestFile(testFile);
             JSONObject testCodeElementsJsonObject = new JSONObject();
+            JSONArray testCodeElementsJsonArray = new JSONArray();
 
             Map<String, List<TestSmell>> testCodeElementListMap = new HashMap<>();
             Map<String, List<AnnotationExpr>> annotations = new HashMap<>();
@@ -71,6 +73,7 @@ public class OutputParser {
 
             for (Map.Entry<String, List<TestSmell>> entry : testCodeElementListMap.entrySet()) {
                 JSONObject testCodeElementJO = new JSONObject();
+                testCodeElementJO.put("name", entry.getKey());
                 JSONArray ja = new JSONArray();
                 for (TestSmell testSmell : entry.getValue())
                     ja.put(testSmell.getName());
@@ -81,10 +84,14 @@ public class OutputParser {
                     ja.put(annotationExpr.getName());
                 testCodeElementJO.put("annotations", ja);
 
-                testCodeElementsJsonObject.put(entry.getKey(), testCodeElementJO);
+                testCodeElementsJsonArray.put(testCodeElementJO);
+
             }
-            testFilesJsonObject.put(testFile.getFileName(), testCodeElementsJsonObject);
+            testCodeElementsJsonObject.put("name", testFile.getFileName());
+            testCodeElementsJsonObject.put("test-methods", testCodeElementsJsonArray);
+            testFilesJsonArray.put(testCodeElementsJsonObject);
         }
+        testFilesJsonObject.put("test-files", testFilesJsonArray);
         return testFilesJsonObject;
     }
 
