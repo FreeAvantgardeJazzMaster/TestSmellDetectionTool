@@ -17,10 +17,19 @@ public class ObjectCreationOutsideSetUp extends TestSmell {
 
     private String name = "Object Creation Outside SetUp";
     private TestMethod testMethod;
+    private boolean smell = false;
     private List<TestCodeElement> testCodeElements;
 
     public ObjectCreationOutsideSetUp() {
         testCodeElements = new ArrayList<>();
+    }
+
+    public boolean isSmell() {
+        return smell;
+    }
+
+    public void setSmell(boolean smell) {
+        this.smell = smell;
     }
 
     @Override
@@ -46,8 +55,12 @@ public class ObjectCreationOutsideSetUp extends TestSmell {
     public void visit(MethodDeclaration method, Void arg) {
         for (AnnotationExpr annotations : method.getAnnotations()) {
             if (!annotations.getNameAsString().toLowerCase().contains("before")){
-                testMethod = new TestMethod(method.getNameAsString());
+                TestMethod testMethod = new TestMethod(method.getNameAsString());
+                testMethod.setAnnotations(method.getAnnotations());
+                setSmell(false);
                 super.visit(method, arg);
+                if (isSmell())
+                    testMethod.setSmell(true);
                 testCodeElements.add(testMethod);
             }
         }
@@ -56,6 +69,6 @@ public class ObjectCreationOutsideSetUp extends TestSmell {
     @Override
     public void visit(ObjectCreationExpr n, Void arg) {
         super.visit(n, arg);
-        testMethod.setSmell(true);
+        setSmell(true);
     }
 }
