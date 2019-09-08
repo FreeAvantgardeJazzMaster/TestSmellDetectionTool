@@ -13,8 +13,8 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        Config.getConfig("src/main/config/config.json");
-        //Config.getConfig("./config/config.json");
+        //Config.getConfig("src/main/config/config.json");
+        Config.getConfig("./config/config.json");
 
 
         List<TestFile> testFiles = new ArrayList<>();
