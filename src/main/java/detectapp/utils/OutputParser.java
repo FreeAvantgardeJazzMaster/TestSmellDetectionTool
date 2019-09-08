@@ -10,6 +10,7 @@ import org.json.JSONObject;
 
 import java.io.File;
 import java.util.*;
+import java.util.stream.Collectors;
 
 import org.apache.commons.io.FileUtils;
 import org.json.XML;
@@ -84,7 +85,8 @@ public class OutputParser {
                     ja.put(annotationExpr.getName());
                 testCodeElementJO.put("annotations", ja);
 
-                testCodeElementsJsonArray.put(testCodeElementJO);
+                if (annotations.get(entry.getKey()).stream().filter(a -> a.getName().toString().equals("Before")).count() == 0)
+                    testCodeElementsJsonArray.put(testCodeElementJO);
 
             }
             testCodeElementsJsonObject.put("name", testFile.getFileName());

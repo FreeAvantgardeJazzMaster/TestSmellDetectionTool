@@ -49,6 +49,9 @@ public class TestSmellDetector {
                 case "sleepytest" :
                     testSmells.add(new SleepyTest());
                     break;
+                case "missingassertion" :
+                    testSmells.add(new MissingAssertion());
+                    break;
             }
         }
     }

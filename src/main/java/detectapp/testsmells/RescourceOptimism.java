@@ -1,13 +1,10 @@
 package detectapp.testsmells;
 
-import com.github.javaparser.ast.body.FieldDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.body.VariableDeclarator;
 import com.github.javaparser.ast.expr.MethodCallExpr;
 import com.github.javaparser.ast.expr.NameExpr;
-import com.github.javaparser.ast.expr.ObjectCreationExpr;
 import com.github.javaparser.ast.expr.VariableDeclarationExpr;
-import com.github.javaparser.ast.modules.ModuleDeclaration;
 import detectapp.model.TestCodeElement;
 import detectapp.model.TestMethod;
 import detectapp.model.TestSmell;
@@ -28,6 +25,9 @@ public class RescourceOptimism extends TestSmell {
     }
 
     private boolean hasSmell = false;
+
+    private List<String> variables = new ArrayList<>();
+    private List<String> checkedVariables = new ArrayList<>();
 
     private List<TestCodeElement> testCodeElements;
 
@@ -51,11 +51,15 @@ public class RescourceOptimism extends TestSmell {
         testMethod.setAnnotations(method.getAnnotations());
         super.visit(method, arg);
 
+        checkLists();
         if (isHasSmell())
-            testMethod.setSmell(isHasSmell());
+            testMethod.setSmell(true);
 
         testCodeElements.add(testMethod);
+
         setHasSmell(false);
+        variables = new ArrayList<>();
+        checkedVariables = new ArrayList<>();
     }
 
 
@@ -63,7 +67,8 @@ public class RescourceOptimism extends TestSmell {
     public void visit(VariableDeclarationExpr n, Void arg) {
         for (VariableDeclarator variableDeclarator : n.getVariables()) {
             if (variableDeclarator.getType().asString().equals("File")) {
-                setHasSmell(true);
+                if (!variables.contains(variableDeclarator.getNameAsString()))
+                    variables.add(variableDeclarator.getNameAsString());
             }
         }
         super.visit(n, arg);
@@ -72,28 +77,12 @@ public class RescourceOptimism extends TestSmell {
     @Override
     public void visit(VariableDeclarator n, Void arg) {
         if (n.getType().asString().equals("File")) {
-            setHasSmell(true);
+            if (!variables.contains(n.getNameAsString()))
+                variables.add(n.getNameAsString());
         }
         super.visit(n, arg);
     }
 
-    @Override
-    public void visit(FieldDeclaration n, Void arg) {
-        for (VariableDeclarator variableDeclarator : n.getVariables()) {
-            if (variableDeclarator.getType().asString().equals("File")) {
-                setHasSmell(true);
-            }
-        }
-        super.visit(n, arg);
-    }
-
-    @Override
-    public void visit(ObjectCreationExpr n, Void arg) {
-        if (n.getType().asString().equals("File")) {
-            setHasSmell(true);
-        }
-        super.visit(n, arg);
-    }
 
     @Override
     public void visit(MethodCallExpr n, Void arg) {
@@ -101,7 +90,22 @@ public class RescourceOptimism extends TestSmell {
         if (n.getNameAsString().equals("exists") ||
                 n.getNameAsString().equals("isFile") ||
                 n.getNameAsString().equals("notExists")) {
-            setHasSmell(true);
+            if (n.getScope().isPresent()){
+                if (n.getScope().get() instanceof NameExpr) {
+                    checkedVariables.add(((NameExpr) n.getScope().get()).getNameAsString());
+                }
+            }
+
         }
+    }
+
+    private void checkLists() {
+        for (String checkedVariable : checkedVariables) {
+            if (variables.contains(checkedVariable))
+                variables.remove(checkedVariable);
+        }
+
+        if (variables.size() > 0)
+            setHasSmell(true);
     }
 }

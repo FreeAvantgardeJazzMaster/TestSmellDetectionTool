@@ -47,6 +47,7 @@ public class ObjectCreationOutsideSetUp extends TestSmell {
         for (AnnotationExpr annotations : method.getAnnotations()) {
             if (!annotations.getNameAsString().toLowerCase().contains("before")){
                 testMethod = new TestMethod(method.getNameAsString());
+                testMethod.setAnnotations(method.getAnnotations());
                 super.visit(method, arg);
                 testCodeElements.add(testMethod);
             }
