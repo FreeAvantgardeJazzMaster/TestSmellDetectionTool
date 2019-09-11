@@ -47,19 +47,25 @@ public class OutputParser {
         JSONObject testFilesJsonObject = new JSONObject();
         JSONArray testFilesJsonArray = new JSONArray();
         for (TestFile testFile : testFiles) {
-            testFile = filterTestFile(testFile);
+            //testFile = filterTestFile(testFile);
             JSONObject testCodeElementsJsonObject = new JSONObject();
             JSONArray testCodeElementsJsonArray = new JSONArray();
 
             Map<String, List<TestSmell>> testCodeElementListMap = new HashMap<>();
             Map<String, List<AnnotationExpr>> annotations = new HashMap<>();
+            Map<String, Integer> statementsCounts = new HashMap<>();
+            Map<String, Integer> locs = new HashMap<>();
 
             for (TestSmell testSmell : testFile.getTestSmells()) {
                 for (TestCodeElement testCodeElement : testSmell.getTestCodeElements()) {
                     if (testCodeElementListMap.containsKey(testCodeElement.getName())) {
-                        testCodeElementListMap.get(testCodeElement.getName()).add(testSmell);
+                        if (testCodeElement.isSmell())
+                            testCodeElementListMap.get(testCodeElement.getName()).add(testSmell);
                     } else {
-                        testCodeElementListMap.put(testCodeElement.getName(), new ArrayList<>(Arrays.asList(testSmell)));
+                        if (testCodeElement.isSmell())
+                            testCodeElementListMap.put(testCodeElement.getName(), new ArrayList<>(Arrays.asList(testSmell)));
+                        else
+                            testCodeElementListMap.put(testCodeElement.getName(), new ArrayList<>());
                     }
 
                     if (!annotations.containsKey(testCodeElement.getName())) {
@@ -69,12 +75,22 @@ public class OutputParser {
                             annotations.put(testCodeElement.getName(), new ArrayList<>());
                     }
 
+                    if (!statementsCounts.containsKey(testCodeElement.getName())) {
+                        statementsCounts.put(testCodeElement.getName(), testCodeElement.getStatementsCount());
+                    }
+
+                    if (!locs.containsKey(testCodeElement.getName())) {
+                        locs.put(testCodeElement.getName(), testCodeElement.getLoc());
+                    }
                 }
             }
 
             for (Map.Entry<String, List<TestSmell>> entry : testCodeElementListMap.entrySet()) {
                 JSONObject testCodeElementJO = new JSONObject();
                 testCodeElementJO.put("name", entry.getKey());
+                testCodeElementJO.put("statements", statementsCounts.get(entry.getKey()));
+                testCodeElementJO.put("loc", locs.get(entry.getKey()));
+
                 JSONArray ja = new JSONArray();
                 for (TestSmell testSmell : entry.getValue())
                     ja.put(testSmell.getName());

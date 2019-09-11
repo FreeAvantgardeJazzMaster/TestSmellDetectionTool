@@ -22,7 +22,8 @@
     "ObjectCreationOutsideSetUp",
     "ResourceOptimism",
     "SleepyTest",
-    "EagerTest"
+    "EagerTest",
+    "MissingAssertion"
   ],
 
   "app-settings" :{

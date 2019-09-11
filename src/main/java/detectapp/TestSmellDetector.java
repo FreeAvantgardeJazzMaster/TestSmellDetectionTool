@@ -61,7 +61,12 @@ public class TestSmellDetector {
         //initSmells(null);
         FileInputStream fis = new FileInputStream(testFile.getFilePath());
         JavaParser javaParser = new JavaParser();
-        CompilationUnit cu = javaParser.parse(fis);
+        CompilationUnit cu = null;
+        try {
+            cu = javaParser.parse(fis);
+        } catch (Exception e) {
+            System.out.println(testFile.getFileName());
+        }
 
         for (TestSmell testSmell : testSmells) {
             try {

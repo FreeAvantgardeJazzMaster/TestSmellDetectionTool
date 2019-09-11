@@ -35,6 +35,8 @@ public class MissingAssertion extends TestSmell {
     public void visit(MethodDeclaration method, Void arg) {
         TestMethod testMethod = new TestMethod(method.getNameAsString());
         testMethod.setAnnotations(method.getAnnotations());
+        testMethod.setStatementsCount(method.getBody().isPresent() ? method.getBody().get().getStatements().size() : 0);
+        testMethod.setLoc(calcLoc(method));
         assertCount = 0;
         super.visit(method, arg);
 

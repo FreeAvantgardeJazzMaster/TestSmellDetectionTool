@@ -42,21 +42,14 @@ public class ObjectCreationOutsideSetUp extends TestSmell {
         return testCodeElements;
     }
 
-    /*
-    @Override
-    public void visit(ClassOrInterfaceDeclaration n, Void arg) {
-        testClass = new TestClass(n.getNameAsString());
-        super.visit(n, arg);
-        testCodeElements.add(testClass);
-    }
-    */
-
     @Override
     public void visit(MethodDeclaration method, Void arg) {
         for (AnnotationExpr annotations : method.getAnnotations()) {
             if (!annotations.getNameAsString().toLowerCase().contains("before")){
                 TestMethod testMethod = new TestMethod(method.getNameAsString());
                 testMethod.setAnnotations(method.getAnnotations());
+                testMethod.setStatementsCount(method.getBody().isPresent() ? method.getBody().get().getStatements().size() : 0);
+                testMethod.setLoc(calcLoc(method));
                 setSmell(false);
                 super.visit(method, arg);
                 if (isSmell())

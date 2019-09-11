@@ -13,8 +13,8 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        //Config.getConfig("src/main/config/config.json");
-        Config.getConfig("./config/config.json");
+        Config.getConfig("src/main/config/config.json");
+        //Config.getConfig("./config/config.json");
 
 
         List<TestFile> testFiles = new ArrayList<>();
@@ -27,8 +27,10 @@ public class Main {
         if (testFolder.exists() && testFolder.isDirectory()) {
             for (File file : testFolder.listFiles()) {
                 if (!file.isDirectory()){
-                    testFiles.add(new TestFile(file.getPath()));
-                    testProductionFiles.add(new TestProductionFile(getCorrespondingProductionFilePath(file)));
+                    if (!file.isHidden()) {
+                        testFiles.add(new TestFile(file.getPath()));
+                        testProductionFiles.add(new TestProductionFile(getCorrespondingProductionFilePath(file)));
+                    }
                 }
             }
         }

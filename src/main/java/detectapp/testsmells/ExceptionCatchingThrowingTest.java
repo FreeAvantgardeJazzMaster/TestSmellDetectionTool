@@ -38,6 +38,8 @@ public class ExceptionCatchingThrowingTest extends TestSmell {
         hasException = false;
         TestMethod testMethod = new TestMethod(method.getNameAsString());
         testMethod.setAnnotations(method.getAnnotations());
+        testMethod.setStatementsCount(method.getBody().isPresent() ? method.getBody().get().getStatements().size() : 0);
+        testMethod.setLoc(calcLoc(method));
         super.visit(method, arg);
 
         if (method.getThrownExceptions().size() > 0)

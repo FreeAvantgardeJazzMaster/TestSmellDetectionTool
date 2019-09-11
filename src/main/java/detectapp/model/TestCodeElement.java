@@ -13,5 +13,9 @@ public interface TestCodeElement {
     void setSmell(boolean smell);
 
     List<AnnotationExpr> getAnnotations();
+
+    int getStatementsCount();
+
+    int getLoc();
 }
 

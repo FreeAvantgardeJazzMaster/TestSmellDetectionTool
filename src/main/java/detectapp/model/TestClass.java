@@ -29,6 +29,14 @@ public class TestClass implements TestCodeElement {
         return null;
     }
 
+    @Override
+    public int getStatementsCount() {
+        return 0;
+    }
+
+    @Override
+    public int getLoc() {return 0;}
+
     public TestClass(String name) {
         this.name = name;
         this.smell = false;

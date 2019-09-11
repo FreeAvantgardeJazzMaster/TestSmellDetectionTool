@@ -1,57 +1,1861 @@
 {
-  "CarTest": {
-    "CarTest": {
-      "test-smells": [
-        "Object Creation Outside SetUp"
+  "test-files": [
+    {
+      "test-methods": [
+        {
+          "loc": 27,
+          "test-smells": [
+            "Complexity",
+            "Assertion Roulette",
+            "Object Creation Outside SetUp"
+          ],
+          "name": "testVerticalStripe",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 7
+        },
+        {
+          "loc": 28,
+          "test-smells": [
+            "Complexity",
+            "Assertion Roulette",
+            "Object Creation Outside SetUp",
+            "Eager Test"
+          ],
+          "name": "testCircle",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 9
+        },
+        {
+          "loc": 14,
+          "test-smells": [
+            "Complexity",
+            "Assertion Roulette",
+            "Object Creation Outside SetUp",
+            "Eager Test"
+          ],
+          "name": "testBlackImage",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 7
+        },
+        {
+          "loc": 28,
+          "test-smells": [
+            "Complexity",
+            "Assertion Roulette",
+            "Object Creation Outside SetUp"
+          ],
+          "name": "testHorizontalStripe",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 7
+        },
+        {
+          "loc": 35,
+          "test-smells": [
+            "Complexity",
+            "Assertion Roulette",
+            "Object Creation Outside SetUp"
+          ],
+          "name": "testVerticalStripeSPMK",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 8
+        }
       ],
-      "annotations": []
+      "name": "src/main/resources/test/HOGFeatureTest"
     },
-    "eagerTestMethod": {
-      "test-smells": [
-        "Duplicated Assertion",
-        "Eager Test"
+    {
+      "test-methods": [
+        {
+          "loc": 4,
+          "test-smells": [
+            "Exception Catching Throwing Test",
+            "Object Creation Outside SetUp",
+            "Missing Assertion"
+          ],
+          "name": "test",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 3
+        }
       ],
-      "annotations": [
-        "Test"
-      ]
+      "name": "src/main/resources/test/RouteTest"
+    },
+    {
+      "test-methods": [
+        {
+          "loc": 23,
+          "test-smells": [
+            "Exception Catching Throwing Test",
+            "Object Creation Outside SetUp",
+            "Missing Assertion"
+          ],
+          "name": "HanmiCompareTest",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 10
+        }
+      ],
+      "name": "src/main/resources/test/HanmiCompareTest"
+    },
+    {
+      "test-methods": [
+        {
+          "loc": 7,
+          "test-smells": [],
+          "name": "echo2",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 5
+        },
+        {
+          "loc": 7,
+          "test-smells": [],
+          "name": "echo4",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 5
+        },
+        {
+          "loc": 7,
+          "test-smells": [],
+          "name": "echo3",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 5
+        },
+        {
+          "loc": 28,
+          "test-smells": [
+            "Complexity",
+            "Missing Assertion"
+          ],
+          "name": "log",
+          "annotations": [],
+          "statements": 4
+        },
+        {
+          "loc": 7,
+          "test-smells": [],
+          "name": "echo",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 5
+        },
+        {
+          "loc": 7,
+          "test-smells": [],
+          "name": "echo6",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 5
+        },
+        {
+          "loc": 7,
+          "test-smells": [],
+          "name": "echo5",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 5
+        }
+      ],
+      "name": "src/main/resources/test/EchoTest"
+    },
+    {
+      "test-methods": [
+        {
+          "loc": 34,
+          "test-smells": [
+            "Complexity",
+            "Exception Catching Throwing Test",
+            "Mystery Guest",
+            "Object Creation Outside SetUp",
+            "Resource Optimism",
+            "Missing Assertion"
+          ],
+          "name": "testSeparation",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 15
+        }
+      ],
+      "name": "src/main/resources/test/SeparateTest"
+    },
+    {
+      "test-methods": [
+        {
+          "loc": 11,
+          "test-smells": [
+            "Object Creation Outside SetUp"
+          ],
+          "name": "getFirstNodeValue4",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 7
+        },
+        {
+          "loc": 11,
+          "test-smells": [
+            "Complexity",
+            "Object Creation Outside SetUp"
+          ],
+          "name": "getFirstNodeValue3",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 6
+        },
+        {
+          "loc": 11,
+          "test-smells": [
+            "Complexity",
+            "Object Creation Outside SetUp"
+          ],
+          "name": "getFirstNodeValue2",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 6
+        },
+        {
+          "loc": 11,
+          "test-smells": [
+            "Complexity",
+            "Object Creation Outside SetUp"
+          ],
+          "name": "getFirstNodeValue",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 6
+        },
+        {
+          "loc": 13,
+          "test-smells": [
+            "Object Creation Outside SetUp"
+          ],
+          "name": "getFirstNodeValue7",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 9
+        },
+        {
+          "loc": 12,
+          "test-smells": [
+            "Object Creation Outside SetUp"
+          ],
+          "name": "getFirstNodeValue6",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 8
+        },
+        {
+          "loc": 12,
+          "test-smells": [
+            "Object Creation Outside SetUp"
+          ],
+          "name": "getFirstNodeValue5",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 8
+        }
+      ],
+      "name": "src/main/resources/test/SortArrayMapConsistentHashTest"
+    },
+    {
+      "test-methods": [
+        {
+          "loc": 14,
+          "test-smells": [
+            "Complexity",
+            "Missing Assertion"
+          ],
+          "name": "DigestCompareTest",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 8
+        }
+      ],
+      "name": "src/main/resources/test/DigestCompareTest"
+    },
+    {
+      "test-methods": [
+        {
+          "loc": 6,
+          "test-smells": [
+            "Complexity",
+            "Exception Catching Throwing Test",
+            "Missing Assertion"
+          ],
+          "name": "writeLog",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 2
+        },
+        {
+          "loc": 3,
+          "test-smells": [
+            "Missing Assertion"
+          ],
+          "name": "query",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 2
+        }
+      ],
+      "name": "src/main/resources/test/AsyncMsgLoggerTest"
+    },
+    {
+      "test-methods": [
+        {
+          "loc": 7,
+          "test-smells": [
+            "Complexity",
+            "Exception Catching Throwing Test",
+            "Missing Assertion"
+          ],
+          "name": "loadRouteRelated",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 2
+        }
+      ],
+      "name": "src/main/resources/test/AccountServiceTest"
+    },
+    {
+      "test-methods": [
+        {
+          "loc": 7,
+          "test-smells": [
+            "Missing Assertion"
+          ],
+          "name": "emoji2",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 4
+        },
+        {
+          "loc": 11,
+          "test-smells": [
+            "Missing Assertion"
+          ],
+          "name": "test",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 6
+        },
+        {
+          "loc": 48,
+          "test-smells": [
+            "Complexity",
+            "Object Creation Outside SetUp",
+            "Missing Assertion"
+          ],
+          "name": "searchMsg",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 11
+        },
+        {
+          "loc": 14,
+          "test-smells": [
+            "Exception Catching Throwing Test",
+            "Missing Assertion"
+          ],
+          "name": "emoji",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 5
+        },
+        {
+          "loc": 25,
+          "test-smells": [
+            "Complexity",
+            "Exception Catching Throwing Test",
+            "Missing Assertion"
+          ],
+          "name": "log",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 11
+        },
+        {
+          "loc": 23,
+          "test-smells": [
+            "Complexity",
+            "Object Creation Outside SetUp",
+            "Missing Assertion"
+          ],
+          "name": "onlineUser",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 13
+        },
+        {
+          "loc": 34,
+          "test-smells": [
+            "Complexity",
+            "Object Creation Outside SetUp",
+            "Missing Assertion"
+          ],
+          "name": "searchMsg2",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 12
+        }
+      ],
+      "name": "src/main/resources/test/CommonTest"
+    },
+    {
+      "test-methods": [
+        {
+          "loc": 1,
+          "test-smells": [
+            "Empty Test"
+          ],
+          "name": "contextLoads",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 0
+        }
+      ],
+      "name": "src/main/resources/test/OrderProviderTest"
+    },
+    {
+      "test-methods": [
+        {
+          "loc": 4,
+          "test-smells": [
+            "Missing Assertion"
+          ],
+          "name": "test",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 3
+        }
+      ],
+      "name": "src/main/resources/test/RedisTest"
+    },
+    {
+      "test-methods": [
+        {
+          "loc": 33,
+          "test-smells": [
+            "Complexity",
+            "Assertion Roulette",
+            "Object Creation Outside SetUp"
+          ],
+          "name": "testColorImageSPMK",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 9
+        },
+        {
+          "loc": 23,
+          "test-smells": [
+            "Complexity",
+            "Assertion Roulette",
+            "Object Creation Outside SetUp"
+          ],
+          "name": "testWhiteImage",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 7
+        },
+        {
+          "loc": 23,
+          "test-smells": [
+            "Complexity",
+            "Assertion Roulette",
+            "Object Creation Outside SetUp",
+            "Eager Test"
+          ],
+          "name": "testBlackImage",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 7
+        },
+        {
+          "loc": 33,
+          "test-smells": [
+            "Complexity",
+            "Assertion Roulette",
+            "Object Creation Outside SetUp",
+            "Eager Test"
+          ],
+          "name": "testTwoColorImage",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 9
+        },
+        {
+          "loc": 26,
+          "test-smells": [
+            "Complexity",
+            "Assertion Roulette",
+            "Object Creation Outside SetUp",
+            "Eager Test"
+          ],
+          "name": "testColorImage",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 8
+        }
+      ],
+      "name": "src/main/resources/test/RGBFeatureTest"
+    },
+    {
+      "test-methods": [
+        {
+          "loc": 36,
+          "test-smells": [
+            "Complexity",
+            "Exception Catching Throwing Test",
+            "Object Creation Outside SetUp",
+            "Sleepy Test",
+            "Missing Assertion"
+          ],
+          "name": "sendMail",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 1
+        }
+      ],
+      "name": "src/main/resources/test/EmailTest"
+    },
+    {
+      "test-methods": [
+        {
+          "loc": 1,
+          "test-smells": [
+            "Empty Test"
+          ],
+          "name": "contextLoads",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 0
+        }
+      ],
+      "name": "src/main/resources/test/UserTest"
+    },
+    {
+      "test-methods": [
+        {
+          "loc": 9,
+          "test-smells": [
+            "Assertion Roulette"
+          ],
+          "name": "validateFeatureVector",
+          "annotations": [],
+          "statements": 8
+        },
+        {
+          "loc": 17,
+          "test-smells": [
+            "Exception Catching Throwing Test",
+            "Object Creation Outside SetUp",
+            "Eager Test",
+            "Missing Assertion"
+          ],
+          "name": "FeatureTest",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 5
+        },
+        {
+          "loc": 4,
+          "test-smells": [
+            "Assertion Roulette"
+          ],
+          "name": "validateFeature",
+          "annotations": [],
+          "statements": 3
+        }
+      ],
+      "name": "src/main/resources/test/ImageFeatureExtractorTest"
+    },
+    {
+      "test-methods": [
+        {
+          "loc": 10,
+          "test-smells": [
+            "Assertion Roulette"
+          ],
+          "name": "build",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 4
+        },
+        {
+          "loc": 17,
+          "test-smells": [
+            "Object Creation Outside SetUp",
+            "Eager Test",
+            "Missing Assertion"
+          ],
+          "name": "testUrlBuilder",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 6
+        },
+        {
+          "loc": 10,
+          "test-smells": [
+            "Assertion Roulette"
+          ],
+          "name": "build1",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 4
+        }
+      ],
+      "name": "src/main/resources/test/UrlBuilderTest"
+    },
+    {
+      "test-methods": [
+        {
+          "loc": 27,
+          "test-smells": [
+            "Complexity",
+            "Assertion Roulette",
+            "Object Creation Outside SetUp",
+            "Eager Test"
+          ],
+          "name": "testVerticalStripe",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 7
+        },
+        {
+          "loc": 20,
+          "test-smells": [
+            "Complexity",
+            "Assertion Roulette",
+            "Object Creation Outside SetUp",
+            "Eager Test"
+          ],
+          "name": "testBlackImage",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 7
+        },
+        {
+          "loc": 27,
+          "test-smells": [
+            "Complexity",
+            "Assertion Roulette",
+            "Object Creation Outside SetUp",
+            "Eager Test"
+          ],
+          "name": "testHorizontalStripe",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 7
+        }
+      ],
+      "name": "src/main/resources/test/LBPFeatureTest"
+    },
+    {
+      "test-methods": [
+        {
+          "loc": 5,
+          "test-smells": [
+            "Missing Assertion"
+          ],
+          "name": "selectAllTest",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 2
+        },
+        {
+          "loc": 2,
+          "test-smells": [
+            "Empty Test"
+          ],
+          "name": "insertTest",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 0
+        }
+      ],
+      "name": "src/main/resources/test/AddressTest"
+    },
+    {
+      "test-methods": [
+        {
+          "loc": 13,
+          "test-smells": [
+            "Complexity",
+            "Exception Catching Throwing Test",
+            "Missing Assertion"
+          ],
+          "name": "test",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 5
+        }
+      ],
+      "name": "src/main/resources/test/NettyAtributeUtliTest"
+    },
+    {
+      "test-methods": [
+        {
+          "loc": 7,
+          "test-smells": [
+            "Complexity",
+            "Object Creation Outside SetUp",
+            "Eager Test",
+            "Missing Assertion"
+          ],
+          "name": "add",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 4
+        },
+        {
+          "loc": 7,
+          "test-smells": [
+            "Complexity",
+            "Object Creation Outside SetUp",
+            "Eager Test",
+            "Missing Assertion"
+          ],
+          "name": "ad",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 4
+        },
+        {
+          "loc": 12,
+          "test-smells": [
+            "Object Creation Outside SetUp",
+            "Missing Assertion"
+          ],
+          "name": "firstNode2",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 9
+        },
+        {
+          "loc": 12,
+          "test-smells": [
+            "Complexity",
+            "Object Creation Outside SetUp",
+            "Missing Assertion"
+          ],
+          "name": "add6",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 6
+        },
+        {
+          "loc": 12,
+          "test-smells": [
+            "Object Creation Outside SetUp",
+            "Missing Assertion"
+          ],
+          "name": "firstNode",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 9
+        },
+        {
+          "loc": 12,
+          "test-smells": [
+            "Object Creation Outside SetUp",
+            "Missing Assertion"
+          ],
+          "name": "firstNode3",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 9
+        },
+        {
+          "loc": 17,
+          "test-smells": [
+            "Complexity",
+            "Object Creation Outside SetUp",
+            "Missing Assertion"
+          ],
+          "name": "add5",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 7
+        },
+        {
+          "loc": 12,
+          "test-smells": [
+            "Object Creation Outside SetUp",
+            "Missing Assertion"
+          ],
+          "name": "firstNode4",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 9
+        },
+        {
+          "loc": 14,
+          "test-smells": [
+            "Complexity",
+            "Object Creation Outside SetUp",
+            "Missing Assertion"
+          ],
+          "name": "add8",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 7
+        },
+        {
+          "loc": 12,
+          "test-smells": [
+            "Complexity",
+            "Object Creation Outside SetUp",
+            "Missing Assertion"
+          ],
+          "name": "add7",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 6
+        },
+        {
+          "loc": 8,
+          "test-smells": [
+            "Complexity",
+            "Object Creation Outside SetUp",
+            "Eager Test",
+            "Missing Assertion"
+          ],
+          "name": "add2",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 5
+        },
+        {
+          "loc": 11,
+          "test-smells": [
+            "Object Creation Outside SetUp",
+            "Missing Assertion"
+          ],
+          "name": "add4",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 8
+        },
+        {
+          "loc": 10,
+          "test-smells": [
+            "Object Creation Outside SetUp",
+            "Missing Assertion"
+          ],
+          "name": "add3",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 7
+        }
+      ],
+      "name": "src/main/resources/test/SortArrayMapTest"
+    },
+    {
+      "test-methods": [
+        {
+          "loc": 3,
+          "test-smells": [
+            "Missing Assertion"
+          ],
+          "name": "tkMapperTest",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 2
+        },
+        {
+          "loc": 1,
+          "test-smells": [
+            "Empty Test"
+          ],
+          "name": "contextLoads",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 0
+        }
+      ],
+      "name": "src/main/resources/test/PayProviderTest"
+    },
+    {
+      "test-methods": [
+        {
+          "loc": 13,
+          "test-smells": [
+            "Complexity",
+            "Exception Catching Throwing Test",
+            "Object Creation Outside SetUp"
+          ],
+          "name": "all",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 7
+        },
+        {
+          "loc": 17,
+          "test-smells": [
+            "Complexity",
+            "Exception Catching Throwing Test",
+            "Object Creation Outside SetUp"
+          ],
+          "name": "prefixSea",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 10
+        },
+        {
+          "loc": 17,
+          "test-smells": [
+            "Complexity",
+            "Exception Catching Throwing Test",
+            "Object Creation Outside SetUp"
+          ],
+          "name": "prefixSea5",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 10
+        },
+        {
+          "loc": 12,
+          "test-smells": [
+            "Complexity",
+            "Exception Catching Throwing Test",
+            "Object Creation Outside SetUp"
+          ],
+          "name": "prefixSearch10",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 7
+        },
+        {
+          "loc": 11,
+          "test-smells": [
+            "Exception Catching Throwing Test",
+            "Object Creation Outside SetUp",
+            "Missing Assertion"
+          ],
+          "name": "prefixSearch44",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 9
+        },
+        {
+          "loc": 15,
+          "test-smells": [
+            "Complexity",
+            "Exception Catching Throwing Test",
+            "Object Creation Outside SetUp"
+          ],
+          "name": "prefixSearch7",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 10
+        },
+        {
+          "loc": 4,
+          "test-smells": [
+            "Exception Catching Throwing Test",
+            "Object Creation Outside SetUp",
+            "Missing Assertion"
+          ],
+          "name": "insert",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 3
+        },
+        {
+          "loc": 17,
+          "test-smells": [
+            "Complexity",
+            "Exception Catching Throwing Test",
+            "Object Creation Outside SetUp"
+          ],
+          "name": "prefixSea2",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 10
+        },
+        {
+          "loc": 15,
+          "test-smells": [
+            "Complexity",
+            "Exception Catching Throwing Test",
+            "Object Creation Outside SetUp"
+          ],
+          "name": "prefixSearch6",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 10
+        },
+        {
+          "loc": 17,
+          "test-smells": [
+            "Complexity",
+            "Exception Catching Throwing Test",
+            "Object Creation Outside SetUp"
+          ],
+          "name": "prefixSea3",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 10
+        },
+        {
+          "loc": 15,
+          "test-smells": [
+            "Complexity",
+            "Exception Catching Throwing Test",
+            "Object Creation Outside SetUp"
+          ],
+          "name": "prefixSearch9",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 10
+        },
+        {
+          "loc": 17,
+          "test-smells": [
+            "Complexity",
+            "Exception Catching Throwing Test",
+            "Object Creation Outside SetUp"
+          ],
+          "name": "prefixSea4",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 10
+        },
+        {
+          "loc": 10,
+          "test-smells": [
+            "Complexity",
+            "Exception Catching Throwing Test",
+            "Object Creation Outside SetUp"
+          ],
+          "name": "prefixSearch8",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 5
+        },
+        {
+          "loc": 11,
+          "test-smells": [
+            "Complexity",
+            "Exception Catching Throwing Test",
+            "Object Creation Outside SetUp"
+          ],
+          "name": "prefixSearch3",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 7
+        },
+        {
+          "loc": 11,
+          "test-smells": [
+            "Complexity",
+            "Exception Catching Throwing Test",
+            "Object Creation Outside SetUp"
+          ],
+          "name": "prefixSearch2",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 7
+        },
+        {
+          "loc": 21,
+          "test-smells": [
+            "Complexity",
+            "Exception Catching Throwing Test",
+            "Object Creation Outside SetUp",
+            "Missing Assertion"
+          ],
+          "name": "prefixSearch",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 7
+        },
+        {
+          "loc": 15,
+          "test-smells": [
+            "Complexity",
+            "Exception Catching Throwing Test",
+            "Object Creation Outside SetUp"
+          ],
+          "name": "prefixSearch5",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 10
+        },
+        {
+          "loc": 13,
+          "test-smells": [
+            "Complexity",
+            "Exception Catching Throwing Test",
+            "Object Creation Outside SetUp"
+          ],
+          "name": "prefixSearch4",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 8
+        },
+        {
+          "loc": 13,
+          "test-smells": [
+            "Complexity",
+            "Exception Catching Throwing Test",
+            "Object Creation Outside SetUp",
+            "Missing Assertion"
+          ],
+          "name": "all2",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 6
+        }
+      ],
+      "name": "src/main/resources/test/TrieTreeTest"
+    },
+    {
+      "test-methods": [
+        {
+          "loc": 1,
+          "test-smells": [
+            "Empty Test"
+          ],
+          "name": "contextLoads",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 0
+        }
+      ],
+      "name": "src/main/resources/test/MarketProviderTest"
+    },
+    {
+      "test-methods": [
+        {
+          "loc": 6,
+          "test-smells": [
+            "Exception Catching Throwing Test",
+            "Object Creation Outside SetUp",
+            "Missing Assertion"
+          ],
+          "name": "testCartService",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 5
+        },
+        {
+          "loc": 3,
+          "test-smells": [
+            "Exception Catching Throwing Test",
+            "Missing Assertion"
+          ],
+          "name": "testContentService",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 2
+        },
+        {
+          "loc": 10,
+          "test-smells": [
+            "Exception Catching Throwing Test",
+            "Object Creation Outside SetUp",
+            "Missing Assertion"
+          ],
+          "name": "testProductService",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 4
+        },
+        {
+          "loc": 3,
+          "test-smells": [
+            "Exception Catching Throwing Test",
+            "Missing Assertion"
+          ],
+          "name": "testHomeService",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 2
+        },
+        {
+          "loc": 5,
+          "test-smells": [
+            "Exception Catching Throwing Test",
+            "Object Creation Outside SetUp",
+            "Missing Assertion"
+          ],
+          "name": "testProductCateService",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 4
+        }
+      ],
+      "name": "src/main/resources/test/ShoppingProviderTest"
+    },
+    {
+      "test-methods": [
+        {
+          "loc": 1,
+          "test-smells": [
+            "Empty Test"
+          ],
+          "name": "contextLoads",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 0
+        }
+      ],
+      "name": "src/main/resources/test/ShoppingTest"
+    },
+    {
+      "test-methods": [
+        {
+          "loc": 5,
+          "test-smells": [
+            "Missing Assertion"
+          ],
+          "name": "selectAllTest",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 2
+        },
+        {
+          "loc": 2,
+          "test-smells": [
+            "Empty Test"
+          ],
+          "name": "insertTest",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 0
+        }
+      ],
+      "name": "src/main/resources/test/AddessDaoTest"
+    },
+    {
+      "test-methods": [
+        {
+          "loc": 11,
+          "test-smells": [
+            "Complexity",
+            "Exception Catching Throwing Test",
+            "Object Creation Outside SetUp",
+            "Missing Assertion"
+          ],
+          "name": "testOCR",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 1
+        }
+      ],
+      "name": "src/main/resources/test/OCRTest"
+    },
+    {
+      "test-methods": [
+        {
+          "loc": 17,
+          "test-smells": [
+            "Missing Assertion"
+          ],
+          "name": "XorCompareTest",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 15
+        }
+      ],
+      "name": "src/main/resources/test/XorCompareTest"
+    },
+    {
+      "test-methods": [
+        {
+          "loc": 4,
+          "test-smells": [
+            "Missing Assertion"
+          ],
+          "name": "execute9",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 3
+        },
+        {
+          "loc": 4,
+          "test-smells": [
+            "Missing Assertion"
+          ],
+          "name": "execute6",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 3
+        },
+        {
+          "loc": 4,
+          "test-smells": [
+            "Missing Assertion"
+          ],
+          "name": "execute5",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 3
+        },
+        {
+          "loc": 4,
+          "test-smells": [
+            "Missing Assertion"
+          ],
+          "name": "execute8",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 3
+        },
+        {
+          "loc": 4,
+          "test-smells": [
+            "Missing Assertion"
+          ],
+          "name": "execute7",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 3
+        },
+        {
+          "loc": 4,
+          "test-smells": [
+            "Missing Assertion"
+          ],
+          "name": "execute4",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 3
+        },
+        {
+          "loc": 4,
+          "test-smells": [
+            "Missing Assertion"
+          ],
+          "name": "quit",
+          "annotations": [],
+          "statements": 3
+        },
+        {
+          "loc": 4,
+          "test-smells": [
+            "Missing Assertion"
+          ],
+          "name": "execute3",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 3
+        },
+        {
+          "loc": 4,
+          "test-smells": [
+            "Missing Assertion"
+          ],
+          "name": "execute10",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 3
+        },
+        {
+          "loc": 4,
+          "test-smells": [
+            "Missing Assertion"
+          ],
+          "name": "execute",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 3
+        }
+      ],
+      "name": "src/main/resources/test/InnerCommandContextTest"
+    },
+    {
+      "test-methods": [
+        {
+          "loc": 1,
+          "test-smells": [
+            "Empty Test"
+          ],
+          "name": "contextLoads",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 0
+        }
+      ],
+      "name": "src/main/resources/test/CashierTest"
+    },
+    {
+      "test-methods": [
+        {
+          "loc": 9,
+          "test-smells": [],
+          "name": "testEncodeAndDecode",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 4
+        }
+      ],
+      "name": "src/main/resources/test/HttpUtilsTest"
+    },
+    {
+      "test-methods": [
+        {
+          "loc": 11,
+          "test-smells": [
+            "Complexity",
+            "Object Creation Outside SetUp"
+          ],
+          "name": "getFirstNodeValue3",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 6
+        },
+        {
+          "loc": 11,
+          "test-smells": [
+            "Complexity",
+            "Object Creation Outside SetUp"
+          ],
+          "name": "getFirstNodeValue2",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 6
+        },
+        {
+          "loc": 10,
+          "test-smells": [
+            "Complexity",
+            "Object Creation Outside SetUp"
+          ],
+          "name": "getFirstNodeValue",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 6
+        }
+      ],
+      "name": "src/main/resources/test/TreeMapConsistentHashTest"
+    },
+    {
+      "test-methods": [
+        {
+          "loc": 5,
+          "test-smells": [
+            "Assertion Roulette"
+          ],
+          "name": "testIsHttpProtocol",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 3
+        },
+        {
+          "loc": 6,
+          "test-smells": [
+            "Assertion Roulette"
+          ],
+          "name": "testIsHttpsProtocol",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 3
+        }
+      ],
+      "name": "src/main/resources/test/GlobalAuthUtilTest"
+    },
+    {
+      "test-methods": [
+        {
+          "loc": 8,
+          "test-smells": [
+            "Complexity",
+            "Exception Catching Throwing Test",
+            "Missing Assertion"
+          ],
+          "name": "getAllStatusCode",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 2
+        }
+      ],
+      "name": "src/main/resources/test/SystemCommandEnumTypeTest"
+    },
+    {
+      "test-methods": [
+        {
+          "loc": 6,
+          "test-smells": [
+            "Object Creation Outside SetUp",
+            "Missing Assertion"
+          ],
+          "name": "sendMesg",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 5
+        }
+      ],
+      "name": "src/main/resources/test/KafaSendTest"
+    },
+    {
+      "test-methods": [
+        {
+          "loc": 4,
+          "test-smells": [
+            "Missing Assertion"
+          ],
+          "name": "testGreenImage",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 1
+        },
+        {
+          "loc": 3,
+          "test-smells": [
+            "Missing Assertion"
+          ],
+          "name": "testWhiteImage",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 1
+        },
+        {
+          "loc": 3,
+          "test-smells": [
+            "Missing Assertion"
+          ],
+          "name": "testRedImage",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 1
+        },
+        {
+          "loc": 2,
+          "test-smells": [
+            "Missing Assertion"
+          ],
+          "name": "testBlackImage",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 1
+        },
+        {
+          "loc": 4,
+          "test-smells": [
+            "Missing Assertion"
+          ],
+          "name": "testYellowImage",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 1
+        },
+        {
+          "loc": 4,
+          "test-smells": [
+            "Missing Assertion"
+          ],
+          "name": "testBlueImage",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 1
+        },
+        {
+          "loc": 24,
+          "test-smells": [
+            "Complexity",
+            "Assertion Roulette",
+            "Eager Test"
+          ],
+          "name": "testColorImage",
+          "annotations": [],
+          "statements": 7
+        },
+        {
+          "loc": 30,
+          "test-smells": [
+            "Complexity",
+            "Assertion Roulette",
+            "Object Creation Outside SetUp",
+            "Eager Test"
+          ],
+          "name": "testRedGreenImage",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 9
+        }
+      ],
+      "name": "src/main/resources/test/HSVFeatureTest"
+    },
+    {
+      "test-methods": [
+        {
+          "loc": 2,
+          "test-smells": [
+            "Exception Catching Throwing Test",
+            "Missing Assertion"
+          ],
+          "name": "removeLoginStatus",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 1
+        },
+        {
+          "loc": 3,
+          "test-smells": [
+            "Exception Catching Throwing Test",
+            "Missing Assertion"
+          ],
+          "name": "checkUserLoginStatus",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 2
+        },
+        {
+          "loc": 3,
+          "test-smells": [
+            "Missing Assertion"
+          ],
+          "name": "onlineUser",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 2
+        }
+      ],
+      "name": "src/main/resources/test/UserInfoTest"
+    },
+    {
+      "test-methods": [
+        {
+          "loc": 1,
+          "test-smells": [
+            "Empty Test"
+          ],
+          "name": "contextLoads",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 0
+        },
+        {
+          "loc": 3,
+          "test-smells": [
+            "Missing Assertion"
+          ],
+          "name": "test1",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 2
+        }
+      ],
+      "name": "src/main/resources/test/UserProviderTest"
+    },
+    {
+      "test-methods": [
+        {
+          "loc": 51,
+          "test-smells": [
+            "Complexity",
+            "Assertion Roulette",
+            "Object Creation Outside SetUp",
+            "Eager Test"
+          ],
+          "name": "testSerializeV2Header",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 16
+        },
+        {
+          "loc": 22,
+          "test-smells": [
+            "Complexity",
+            "Assertion Roulette",
+            "Object Creation Outside SetUp"
+          ],
+          "name": "testCompatibleHeaderKeys",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 8
+        },
+        {
+          "loc": 33,
+          "test-smells": [
+            "Complexity",
+            "Assertion Roulette",
+            "Object Creation Outside SetUp"
+          ],
+          "name": "testDeserializeV2Header",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 7
+        },
+        {
+          "loc": 47,
+          "test-smells": [
+            "Complexity",
+            "Assertion Roulette",
+            "Object Creation Outside SetUp",
+            "Eager Test"
+          ],
+          "name": "testV2HeaderAccurate",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 25
+        }
+      ],
+      "name": "src/main/resources/test/ContextCarrierTest"
+    },
+    {
+      "test-methods": [
+        {
+          "loc": 1,
+          "test-smells": [
+            "Empty Test"
+          ],
+          "name": "contextLoads",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 0
+        },
+        {
+          "loc": 7,
+          "test-smells": [
+            "Missing Assertion"
+          ],
+          "name": "test1",
+          "annotations": [
+            "Test"
+          ],
+          "statements": 6
+        }
+      ],
+      "name": "src/main/resources/test/CommentProviderAplicationTest"
     }
-  },
-  "testfile": {
-    "multiplicationOfZeroIntegersShouldReturnZero": {
-      "test-smells": [
-        "Complexity",
-        "Duplicated Assertion",
-        "Exception Catching Throwing Test",
-        "Mystery Guest",
-        "Resource Optimism"
-      ],
-      "annotations": [
-        "Test"
-      ]
-    },
-    "eloMethod": {
-      "test-smells": [
-        "Mystery Guest",
-        "Resource Optimism",
-        "Sleepy Test"
-      ],
-      "annotations": [
-        "Test"
-      ]
-    },
-    "eagerTestMethod": {
-      "test-smells": [
-        "Empty Test"
-      ],
-      "annotations": [
-        "Test"
-      ]
-    },
-    "MyTests": {
-      "test-smells": [
-        "Object Creation Outside SetUp"
-      ],
-      "annotations": []
-    }
-  }
+  ]
 }
