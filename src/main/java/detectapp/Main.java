@@ -35,10 +35,13 @@ public class Main {
             }
         }
         int count = 0;
+
+        long start = System.currentTimeMillis();
         for (TestFile testFile : testFiles) {
             analyzedFiles.add(testSmellDetector.detectSmells(testFile, testProductionFiles.get(count)));
             count += 1;
         }
+        System.out.println(System.currentTimeMillis() - start);
 
         OutputParser outputParser = new OutputParser(testFiles, Config.getOutputPath(), Config.getType());
         outputParser.buildOutputFile();
@@ -50,9 +53,11 @@ public class Main {
         File productionFolder = new File(Config.getProductionFolderPath());
         if (productionFolder.exists() && productionFolder.isDirectory()) {
             for (File productionFile : productionFolder.listFiles()) {
-                if (FilenameUtils.removeExtension(testFile.getName()).toLowerCase()
-                        .contains(FilenameUtils.removeExtension(productionFile.getName()).toLowerCase()))
-                    return productionFile.getPath();
+                if (!productionFile.isHidden()) {
+                    if (FilenameUtils.removeExtension(testFile.getName()).toLowerCase()
+                            .contains(FilenameUtils.removeExtension(productionFile.getName()).toLowerCase()))
+                        return productionFile.getPath();
+                }
             }
 
             List<FilePair> filePairs = Config.getFilePairs();

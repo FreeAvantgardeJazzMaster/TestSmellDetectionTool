@@ -51,7 +51,8 @@ public class EagerTest extends TestSmell {
             FileInputStream fis = new FileInputStream(productionFilePath);
             this.compilationUnit = JavaParser.parse(fis);
         } catch (Exception e){
-            e.printStackTrace();
+            //e.printStackTrace();
+            System.out.println(productionFilePath);
         }
     }
 

@@ -1,7 +1,7 @@
 {
   "source": {
-    "test-folder": "src/main/resources/test",
-    "production-folder": "src/main/resources/production"
+    "test-folder": "src/main/resources/test2",
+    "production-folder": "src/main/resources/prod"
   },
 
   "detailed-source":{

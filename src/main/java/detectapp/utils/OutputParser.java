@@ -101,7 +101,7 @@ public class OutputParser {
                     ja.put(annotationExpr.getName());
                 testCodeElementJO.put("annotations", ja);
 
-                if (annotations.get(entry.getKey()).stream().filter(a -> a.getName().toString().equals("Before")).count() == 0)
+                if (annotations.get(entry.getKey()).stream().filter(a -> a.getName().toString().equals("Test")).count() != 0)
                     testCodeElementsJsonArray.put(testCodeElementJO);
 
             }

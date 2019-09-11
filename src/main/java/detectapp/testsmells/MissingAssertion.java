@@ -40,9 +40,10 @@ public class MissingAssertion extends TestSmell {
         assertCount = 0;
         super.visit(method, arg);
 
-        if (assertCount == 0 && method.getBody().get().getStatements().size() != 0) {
-            testMethod.setSmell(true);
-        }
+        if (method.getBody().isPresent())
+            if (assertCount == 0 && method.getBody().get().getStatements().size() != 0)
+                testMethod.setSmell(true);
+
         testCodeElements.add(testMethod);
     }
 
