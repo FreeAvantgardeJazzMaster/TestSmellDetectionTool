@@ -42,8 +42,8 @@ public class ExceptionCatchingThrowingTest extends TestSmell {
         testMethod.setLoc(calcLoc(method));
         super.visit(method, arg);
 
-        if (method.getThrownExceptions().size() > 0)
-            hasException = true;
+        //if (method.getThrownExceptions().size() > 0)
+         //   hasException = true;
 
         if (hasException)
             testMethod.setSmell(true);

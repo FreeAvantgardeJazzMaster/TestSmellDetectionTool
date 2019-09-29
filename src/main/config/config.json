@@ -1,6 +1,6 @@
 {
   "source": {
-    "test-folder": "src/main/resources/test2",
+    "test-folder": "src/main/resources/test",
     "production-folder": "src/main/resources/prod"
   },
 
@@ -19,7 +19,6 @@
     "EmptyTest",
     "ExceptionCatchingThrowingTest",
     "MysteryGuest",
-    "ObjectCreationOutsideSetUp",
     "ResourceOptimism",
     "SleepyTest",
     "EagerTest",
